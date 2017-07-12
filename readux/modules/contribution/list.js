@@ -5,15 +5,15 @@ import { handleActions } from "redux-actions"
 export type Action = {
   type: string,
   payload?: {
-    list: Array<*>
-  }
-
+    list: Array<*>,
+  },
+}
 
 export type ActionAsync = (dispatch: Function, getState: Function) => void
 
-export const list = (list: Array<*>): Action => {
+export const Items = (list: Array<*>): Action => {
   return {
-    type: "CONTRBUTION/LIST",
+    type: "CONTRBUTION/Items",
     payload: {
       list,
     },
@@ -21,29 +21,19 @@ export const list = (list: Array<*>): Action => {
 }
 
 // reducer
-type List = {
-  list: Array<*>
+type State = {
+  list: Array<*>,
 }
 
-const initialState: List = {
-  list: Array<*>
+const initialState: State = {
+  list: [],
 }
 
 export const reducer = handleActions(
   {
-    [ADD_NEW_COUNTER]: (state: CounterState, action) => {
-      const { idGen } = state
-      const newId = idGen + 1
-
-      //this reducer basically generate a new id for new counter and
-      //assign value 0 to that id.
-
+    ["CONTRBUTION/LIST"]: (state: State, action) => {
       return {
-        idGen: newId,
-        counters: {
-          ...state.counters,
-          [newId]: 0,
-        },
+        list: state.list,
       }
     },
   },

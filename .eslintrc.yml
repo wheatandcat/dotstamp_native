@@ -2,6 +2,7 @@ parser: babel-eslint
 plugins:
   - prettier
 extends:
+  - airbnb
   - prettier
   - prettier/flowtype
   - prettier/react
