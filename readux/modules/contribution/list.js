@@ -5,37 +5,34 @@ import { handleActions } from "redux-actions"
 export type Action = {
   type: string,
   payload?: {
-    list: Array<*>,
-  },
+    list: Array<*>
+  }
 }
 
 export type ActionAsync = (dispatch: Function, getState: Function) => void
 
-export const Items = (list: Array<*>): Action => {
-  return {
-    type: "CONTRBUTION/Items",
-    payload: {
-      list,
-    },
+export const Items = (list: Array<*>): Action => ({
+  type: "CONTRBUTION/Items",
+  payload: {
+    list
   }
-}
+})
 
 // reducer
 type State = {
-  list: Array<*>,
+  list: Array<*>
 }
 
 const initialState: State = {
-  list: [],
+  list: []
 }
 
 export const reducer = handleActions(
   {
-    ["CONTRBUTION/LIST"]: (state: State, action) => {
-      return {
-        list: state.list,
-      }
-    },
+    "CONTRBUTION/LIST": (state: State, action) => ({
+      ...state,
+      list: action.payload.list
+    })
   },
   initialState
 )
