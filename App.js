@@ -1,20 +1,20 @@
 // @flow
 
 import React from "react"
-import { StyleSheet, Text, View } from "react-native"
+import { Provider } from "react-redux"
+import { Scene, Router } from "react-native-router-flux"
+import ContributionList from "./redux/containers/Contribution/List"
+import { PageB } from "./components/Contribution/List"
+import createStore from "./redux/createStore"
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center"
-  }
-})
+const store = createStore()
 
 export default () =>
-  <View style={styles.container}>
-    <Text>Open up 1 App.js to start working on your app!</Text>
-    <Text>Changes you make will automatically reload.</Text>
-    <Text>Shake your phone to open the developer menu.</Text>
-  </View>
+  <Provider store={store}>
+    <Router>
+      <Scene key="root">
+        <Scene key="pageA" title="PageA" component={ContributionList} />
+        <Scene key="pageB" title="PageB" component={PageB} />
+      </Scene>
+    </Router>
+  </Provider>
