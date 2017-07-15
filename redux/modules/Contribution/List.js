@@ -19,7 +19,7 @@ export const Items = (list: Array<*>): Action => ({
 })
 
 // reducer
-type State = {
+export type State = {
   list: Array<*>
 }
 

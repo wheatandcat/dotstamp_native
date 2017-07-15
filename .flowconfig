@@ -30,6 +30,11 @@
 ; Ignore react-native-fbads dependency of the expo sdk
 .*/node_modules/react-native-fbads/*
 
+; Ignore react-native
+.*/node_modules/eslint-plugin-jsx-a11y/*
+.*/node_modules/react-native-router-flux/src/LightboxNavigator.js
+.*/node_modules/react-navigation/src/routers/__tests__/*
+
 [include]
 
 [libs]
