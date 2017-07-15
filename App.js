@@ -3,8 +3,8 @@
 import React from "react"
 import { Provider } from "react-redux"
 import { StyleSheet, Text, View } from "react-native"
-import List from "./readux/containers/Contribution/List"
-import createStore from "./readux/createStore"
+import List from "./redux/containers/Contribution/List"
+import createStore from "./redux/createStore"
 
 const store = createStore()
 
@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
   }
 })
 
-export default () =>
+const App = () =>
   <Provider store={store}>
     <View style={styles.container}>
       <Text>Open up App.js to start working on your app!</Text>
@@ -26,3 +26,5 @@ export default () =>
       <List />
     </View>
   </Provider>
+
+export default App
