@@ -23,8 +23,9 @@ export default ({ list }: Props) =>
   <View style={styles.container}>
     <TouchableOpacity onPress={Actions.pageB}>
       <Text style={styles.linkText}>LinkB</Text>
+      {console.log(list)}
       {list.map(item =>
-        <Text>
+        <Text key={item}>
           {item}
         </Text>
       )}

@@ -12,7 +12,7 @@ export type Action = {
 export type ActionAsync = (dispatch: Function, getState: Function) => void
 
 export const Items = (list: Array<*>): Action => ({
-  type: "CONTRBUTION/Items",
+  type: "CONTRBUTION/GET",
   payload: {
     list
   }
@@ -29,7 +29,7 @@ const initialState: State = {
 
 export const reducer = handleActions(
   {
-    "CONTRBUTION/LIST": (state: State, action) => ({
+    "CONTRBUTION/GET": (state: State, action) => ({
       ...state,
       list: action.payload.list
     })
