@@ -1,8 +1,6 @@
 // @flow
 /* eslint-disable import/prefer-default-export */
-import fetch from "isomorphic-fetch"
-
-const host: string = "http://dotstamp.com/"
+const host: string = ""
 const fetchStateList: Object = {}
 
 /**
@@ -29,25 +27,16 @@ function shouldFetchPosts(url: string): boolean {
  * レスポンスを返す
  *
  * @param  {string} url URL
- * @param  {string} type タイプ
- * @param  {object} response レスポンス
- * @param  {object} receiveParam 返しパラメータ
+ * @param  {any} res レスポンス
  * @return {object} アクション
  */
-function receiveResponse(
-  url: string,
-  type: string,
-  response: Object,
-  receiveParam = {}
-): Object {
+function receiveResponse(url: string, res: any): Object {
   fetchStateList[url].isFetching = false
 
   return {
-    type,
-    url,
-    response,
-    receivedAt: Date.now(),
-    receiveParam
+    type: "GET",
+    res,
+    receivedAt: Date.now()
   }
 }
 
@@ -70,7 +59,7 @@ function receiveErrorResponse(url: string, response: Object) {
   }
 }
 
-function fetchGets(url: string, type: string, receiveParam: Object) {
+function fetchGets(url: string) {
   const requestParams = {
     method: "GET",
     credentials: "same-origin",
@@ -92,7 +81,7 @@ function fetchGets(url: string, type: string, receiveParam: Object) {
           return dispatch(receiveErrorResponse(url, json))
         }
 
-        return dispatch(receiveResponse(url, type, json, receiveParam))
+        return dispatch(receiveResponse(url, json))
       })
 }
 
@@ -100,21 +89,14 @@ function fetchGets(url: string, type: string, receiveParam: Object) {
  * 必要な場合は通信しテキストを取得する
  *
  * @param  {string} url URL
- * @param  {string} type タイプ
- * @param  {object} receiveParam 返しパラメータ
  * @return {object} アクション
  */
-export function fetchGetsIfNeeded(
-  url: string,
-  type: string,
-  receiveParam: Object
-): Object {
+export function fetchGetsIfNeeded(url: string): Object {
   return dispatch => {
     if (shouldFetchPosts(url)) {
-      // thunkからthunkを呼び出せる！
-      return dispatch(fetchGets(url, type, receiveParam))
+      return dispatch(fetchGets(url))
     }
-    // 下記コードを呼び、wait forには何もないことを知らせる
+
     return Promise.resolve()
   }
 }

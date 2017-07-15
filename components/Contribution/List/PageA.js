@@ -4,7 +4,7 @@ import { View, Text, TouchableOpacity, StyleSheet } from "react-native"
 import { Actions } from "react-native-router-flux"
 
 type Props = {
-  list: Array<*>
+  list: any
 }
 
 const styles = StyleSheet.create({
@@ -23,10 +23,9 @@ export default ({ list }: Props) =>
   <View style={styles.container}>
     <TouchableOpacity onPress={Actions.pageB}>
       <Text style={styles.linkText}>LinkB</Text>
-      {console.log(list)}
       {list.map(item =>
-        <Text key={item}>
-          {item}
+        <Text key={item.title}>
+          {item.title}
         </Text>
       )}
     </TouchableOpacity>
