@@ -1,5 +1,5 @@
 {
-  "name": "dotstamp_native",
+  "name": "TestProject",
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
@@ -18,9 +18,9 @@
     "eslint-plugin-promise": "^3.5.0",
     "eslint-plugin-react": "7.0.1",
     "eslint-plugin-standard": "^3.0.1",
+    "react-native-scripts": "0.0.50",
     "jest-expo": "~18.0.0",
     "prettier": "^1.5.2",
-    "react-native-scripts": "^0.0.50",
     "react-test-renderer": "16.0.0-alpha.12"
   },
   "main": "./node_modules/react-native-scripts/build/bin/crna-entry.js",
@@ -35,14 +35,8 @@
     "preset": "jest-expo"
   },
   "dependencies": {
-    "expo": "^18.0.9",
-    "isomorphic-fetch": "^2.2.1",
+    "expo": "^18.0.3",
     "react": "16.0.0-alpha.12",
-    "react-native": "^0.46.2",
-    "react-native-router-flux": "^4.0.0-beta.10",
-    "react-redux": "^5.0.5",
-    "redux": "^3.7.2",
-    "redux-actions": "^2.2.1",
-    "redux-thunk": "^2.2.0"
+    "react-native": "^0.45.1"
   }
 }
