@@ -1,8 +1,12 @@
 {
-  "name": "TestProject",
+  "name": "dotstamp_native",
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
+    "@storybook/addon-actions": "^3.1.9",
+    "@storybook/addon-links": "^3.1.6",
+    "@storybook/react": "^3.1.9",
+    "@storybook/react-native": "^3.1.9",
     "babel-eslint": "7.2.3",
     "eslint": "3.19.0",
     "eslint-config-airbnb": "^15.0.2",
@@ -19,9 +23,9 @@
     "eslint-plugin-react": "7.0.1",
     "eslint-plugin-standard": "^3.0.1",
     "flow-bin": "0.45.0",
-    "jest-expo": "~18.0.0",
+    "jest-expo": "~19.0.0",
     "prettier": "^1.5.2",
-    "react-native-scripts": "0.0.50",
+    "react-native-scripts": "1.0.0",
     "react-test-renderer": "16.0.0-alpha.12"
   },
   "main": "./node_modules/react-native-scripts/build/bin/crna-entry.js",
@@ -30,17 +34,23 @@
     "eject": "react-native-scripts eject",
     "android": "react-native-scripts android",
     "ios": "react-native-scripts ios",
-    "test": "node node_modules/jest/bin/jest.js"
+    "test": "node node_modules/jest/bin/jest.js --watch",
+    "storybook": "storybook start -p 7007"
   },
   "jest": {
     "preset": "jest-expo"
   },
   "dependencies": {
-    "expo": "^18.0.3",
+    "@expo/vector-icons": "^5.0.0",
+    "expo": "^19.0.0",
     "isomorphic-fetch": "^2.2.1",
+    "native-base": "^2.3.1",
+    "prop-types": "^15.5.10",
     "react": "16.0.0-alpha.12",
-    "react-native": "^0.45.1",
+    "react-dom": "16.0.0-alpha.12",
+    "react-native": "^0.46.1",
     "react-native-router-flux": "^4.0.0-beta.11",
+    "react-native-web": "0.0.116",
     "react-redux": "^5.0.5",
     "redux": "^3.7.2",
     "redux-actions": "^2.2.1",
