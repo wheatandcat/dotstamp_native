@@ -1,8 +1,9 @@
 // @flow
 import React from "react"
-import { StyleSheet } from "react-native"
+import { StyleSheet, TouchableOpacity } from "react-native"
 import { Body, Text, Icon, Right, Thumbnail, ListItem } from "native-base"
 import { Col, Row, Grid } from "react-native-easy-grid"
+import { Actions } from "react-native-router-flux"
 import { DateFormat } from "../../../libs/date"
 import type { Item } from "../List/Page"
 
@@ -44,14 +45,18 @@ export default ({ user, title, createdAt }: Item) =>
         </Row>
         <Row>
           <Col>
-            <Text style={styles.title}>
-              {title}
-            </Text>
+            <TouchableOpacity onPress={Actions.pageB}>
+              <Text style={styles.title}>
+                {title}
+              </Text>
+            </TouchableOpacity>
           </Col>
         </Row>
       </Grid>
     </Body>
     <Right>
-      <Icon name="arrow-forward" />
+      <TouchableOpacity onPress={Actions.pageB}>
+        <Icon name="arrow-forward" />
+      </TouchableOpacity>
     </Right>
   </ListItem>

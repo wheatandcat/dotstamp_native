@@ -15,12 +15,6 @@ const mapDispatchToProps = (dispatch: Function) => ({
       fetchGetsIfNeeded(`contributions/list/${order}`)
     ).then(({ res }) => {
       dispatch(Items(res))
-    }),
-  onTest: () =>
-    dispatch(
-      fetchGetsIfNeeded("https://facebook.github.io/react-native/movies.json")
-    ).then(({ res }) => {
-      dispatch(Items(res.movies))
     })
 })
 

@@ -1,8 +1,9 @@
 // @flow
 import React from "react"
-import { Container, Header, Content, List } from "native-base"
+import { Container, Content, List } from "native-base"
 import type { Item } from "./Page"
 import { Page } from "../Thumbnail"
+import Footer from "../Footer"
 
 type Props = {
   list: Array<Item>
@@ -10,10 +11,10 @@ type Props = {
 
 export default ({ list }: Props) =>
   <Container>
-    <Header />
     <Content>
       <List style={{ backgroundColor: "rgb(255, 255, 255)" }}>
         {list.map(item => <Page key={item.title} {...item} />)}
       </List>
     </Content>
+    <Footer />
   </Container>
