@@ -10,7 +10,13 @@ const mapStateToProps = (state: State) => ({
 })
 
 const mapDispatchToProps = (dispatch: Function) => ({
-  onGet: () =>
+  onGet: (order: number) =>
+    dispatch(
+      fetchGetsIfNeeded(`contributions/list/${order}`)
+    ).then(({ res }) => {
+      dispatch(Items(res))
+    }),
+  onTest: () =>
     dispatch(
       fetchGetsIfNeeded("https://facebook.github.io/react-native/movies.json")
     ).then(({ res }) => {

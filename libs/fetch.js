@@ -1,6 +1,6 @@
 // @flow
 /* eslint-disable import/prefer-default-export */
-const host: string = ""
+const host: string = "http://dotstamp.com/api/"
 const fetchStateList: Object = {}
 
 /**

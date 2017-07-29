@@ -1,11 +1,12 @@
 // @flow
 import { handleActions } from "redux-actions"
+import type { Item } from "../../../components/Contribution/List/Page"
 
 // actions
 export type Action = {
   type: string,
   payload?: {
-    list: Array<*>
+    list: Array<Item>
   }
 }
 
@@ -20,7 +21,7 @@ export const Items = (list: Array<*>): Action => ({
 
 // reducer
 export type State = {
-  list: Array<*>
+  list: Array<Item>
 }
 
 const initialState: State = {
