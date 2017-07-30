@@ -16,9 +16,13 @@ const styles = StyleSheet.create({
   }
 })
 
-export default () =>
-  <View style={styles.container}>
-    <TouchableOpacity onPress={Actions.pageA}>
-      <Text style={styles.linkText}>LinkA</Text>
-    </TouchableOpacity>
-  </View>
+export default props => {
+  console.log(props)
+  return (
+    <View style={styles.container}>
+      <TouchableOpacity onPress={Actions.pageA}>
+        <Text style={styles.linkText}>LinkA</Text>
+      </TouchableOpacity>
+    </View>
+  )
+}

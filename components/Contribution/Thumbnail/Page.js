@@ -45,7 +45,10 @@ export default ({ user, title, createdAt }: Item) =>
         </Row>
         <Row>
           <Col>
-            <TouchableOpacity onPress={Actions.pageB}>
+            <TouchableOpacity
+              onPress={() =>
+                Actions.pageB({ param1: "hello", param2: "world" })}
+            >
               <Text style={styles.title}>
                 {title}
               </Text>
