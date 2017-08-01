@@ -1,6 +1,6 @@
 // @flow
 import { handleActions } from "redux-actions"
-import type { Item } from "../../../components/Contribution/List/Page"
+import type { Item } from "../../../components/Contribution/type"
 
 // actions
 export type Action = {
