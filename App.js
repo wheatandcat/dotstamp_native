@@ -1,20 +1,7 @@
 // @flow
+import StorybookUI from "./storybook"
 
-import React from "react"
-import { Provider } from "react-redux"
-import { Scene, Router } from "react-native-router-flux"
-import ContributionList from "./redux/containers/Contribution/List"
-import ContributionShow from "./redux/containers/Contribution/Show"
-import createStore from "./redux/createStore"
+import App from "./Apply"
 
-const store = createStore()
-
-export default () =>
-  <Provider store={store}>
-    <Router>
-      <Scene key="root">
-        <Scene key="pageA" title="PageA" component={ContributionList} />
-        <Scene key="pageB" title="PageB" component={ContributionShow} />
-      </Scene>
-    </Router>
-  </Provider>
+/* eslint-disable */
+module.exports = __DEV__ ? StorybookUI : App;

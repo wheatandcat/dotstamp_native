@@ -3,10 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
-    "@storybook/addon-actions": "^3.1.9",
-    "@storybook/addon-links": "^3.1.6",
-    "@storybook/react": "^3.1.9",
-    "@storybook/react-native": "^3.1.9",
+    "@storybook/addon-actions": "^3.2.0",
+    "@storybook/addon-links": "^3.2.0",
+    "@storybook/react": "^3.2.3",
+    "@storybook/react-native": "^3.2.3",
     "babel-eslint": "7.2.3",
     "eslint": "3.19.0",
     "eslint-config-airbnb": "^15.0.2",
@@ -26,6 +26,7 @@
     "jest-expo": "~19.0.0",
     "prettier": "^1.5.2",
     "react-native-scripts": "1.0.0",
+    "react-native-storybook-loader": "^1.5.1",
     "react-test-renderer": "16.0.0-alpha.12"
   },
   "main": "./node_modules/react-native-scripts/build/bin/crna-entry.js",
@@ -35,7 +36,15 @@
     "android": "react-native-scripts android",
     "ios": "react-native-scripts ios",
     "test": "node node_modules/jest/bin/jest.js --watch",
-    "storybook": "storybook start -p 7007"
+    "storybook": "storybook start -p 7007",
+    "prestorybook": "rnstl --searchDir ./components --pattern '**/stories.js' --outputFile ./storybook/storyLoader.js"
+  },
+  "config": {
+    "react-native-storybook-loader": {
+      "searchDir": ["./components"],
+      "pattern": "**/stories.js",
+      "outputFile": "./storybook/storyLoader.js"
+    }
   },
   "jest": {
     "preset": "jest-expo"
@@ -52,7 +61,7 @@
     "react-native": "^0.46.1",
     "react-native-easy-grid": "^0.1.15",
     "react-native-router-flux": "^4.0.0-beta.11",
-    "react-native-web": "0.0.116",
+    "react-native-web": "^0.0.119",
     "react-redux": "^5.0.5",
     "redux": "^3.7.2",
     "redux-actions": "^2.2.1",
