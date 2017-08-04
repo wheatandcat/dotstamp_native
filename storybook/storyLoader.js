@@ -7,6 +7,7 @@
 function loadStories() {
   
   require('../components/Contribution/List/stories.js');
+  require('../components/Contribution/Show/stories.js');
   
 }
 

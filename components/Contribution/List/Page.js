@@ -1,7 +1,7 @@
 // @flow
 import React from "react"
 import { Frame } from "./"
-import { Item } from "./../type"
+import type { Item } from "./../type"
 
 type Props = {
   list: Array<Item>,
