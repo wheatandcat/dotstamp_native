@@ -1,7 +1,7 @@
 // @flow
 import React from "react"
-import { View, Text } from "react-native"
 import type { ItemDetail } from "../type"
+import { Frame } from "./"
 
 type Props = {
   item: ItemDetail,
@@ -15,12 +15,6 @@ export default class Show extends React.Component {
   props: Props
 
   render() {
-    return (
-      <View>
-        <Text>
-          {this.props.item.title}
-        </Text>
-      </View>
-    )
+    return <Frame item={this.props.item} />
   }
 }

@@ -1,7 +1,8 @@
 // @flow
+/* eslint-disable no-unused-vars */
 import StorybookUI from "./storybook"
 
 import App from "./Apply"
 
-/* eslint-disable */
-module.exports = __DEV__ ? StorybookUI : App;
+// module.exports = __DEV__ ? StorybookUI : App;
+module.exports = App

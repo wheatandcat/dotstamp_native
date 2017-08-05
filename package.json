@@ -47,7 +47,8 @@
     }
   },
   "jest": {
-    "preset": "jest-expo"
+    "preset": "jest-expo",
+    "transformIgnorePatterns": ["/node_modules/(?!native-base)/"]
   },
   "dependencies": {
     "@expo/vector-icons": "^5.0.0",

@@ -1,6 +1,6 @@
 // @flow
 import React from "react"
-import { Container, Header, Content } from "native-base"
+import { Container, Content } from "native-base"
 import { iconURL } from "../../../libs/image"
 import { dateFormat } from "../../../libs/date"
 import type { ItemDetail } from "./../type"
@@ -13,7 +13,6 @@ type Props = {
 
 export default ({ item }: Props) =>
   <Container>
-    <Header />
     <Content>
       <ShowHeader
         name={item.user.name}
