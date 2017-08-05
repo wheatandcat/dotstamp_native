@@ -4,7 +4,7 @@ import { StyleSheet, TouchableOpacity } from "react-native"
 import { Body, Text, Icon, Right, Thumbnail, ListItem } from "native-base"
 import { Col, Row, Grid } from "react-native-easy-grid"
 import { Actions } from "react-native-router-flux"
-import { DateFormat } from "../../../libs/date"
+import { dateFormat } from "../../../libs/date"
 import type { Item } from "../List/Page"
 
 const styles = StyleSheet.create({
@@ -39,7 +39,7 @@ export default ({ user, title, createdAt }: Item) =>
           </Col>
           <Col>
             <Text style={styles.date}>
-              投稿:{DateFormat(createdAt)}
+              投稿:{dateFormat(createdAt)}
             </Text>
           </Col>
         </Row>

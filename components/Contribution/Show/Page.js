@@ -1,7 +1,7 @@
 // @flow
 import React from "react"
 import { View, Text } from "react-native"
-import type { ItemDetail } from "../../Contribution/type"
+import type { ItemDetail } from "../type"
 
 type Props = {
   item: ItemDetail,

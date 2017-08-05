@@ -1,5 +1,5 @@
 // @flow
-import dateFormat from "dateformat"
+import dateFormatBase from "dateformat"
 
 /**
  * 整形した日を取得する
@@ -7,8 +7,8 @@ import dateFormat from "dateformat"
  * @param  {string} data 日付
  * @return {string} 日付
  */
-export function DateFormat(date: string): string {
-  return dateFormat(date, "yyyy/mm/dd")
+export function dateFormat(date: string): string {
+  return dateFormatBase(date, "yyyy/mm/dd")
 }
 
 /**
@@ -17,6 +17,6 @@ export function DateFormat(date: string): string {
  * @param  {string} data 日付
  * @return {string} 日付
  */
-export function DateTimeFormat(date: string): string {
-  return dateFormat(date, "yyyy年mm月dd日 hh:MM:ss")
+export function dateTimeFormat(date: string): string {
+  return dateFormatBase(date, "yyyy年mm月dd日 hh:MM:ss")
 }
