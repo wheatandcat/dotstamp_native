@@ -24,5 +24,5 @@ export default ({ item }: Props) =>
       />
       <List body={item.body} />
     </Content>
-    <Footer />
+    <Footer selected="list" />
   </Container>

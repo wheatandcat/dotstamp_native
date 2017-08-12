@@ -16,5 +16,5 @@ export default ({ list }: Props) =>
         {list.map(item => <Page key={item.title} {...item} />)}
       </List>
     </Content>
-    <Footer />
+    <Footer selected="list" />
   </Container>

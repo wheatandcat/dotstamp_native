@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
   }
 })
 
-export default ({ user, title, createdAt }: Item) =>
+export default ({ id, user, title, createdAt }: Item) =>
   <ListItem>
     <Thumbnail
       source={{ uri: "http://dotstamp.com/static/files/icon/1.jpg" }}
@@ -45,10 +45,7 @@ export default ({ user, title, createdAt }: Item) =>
         </Row>
         <Row>
           <Col>
-            <TouchableOpacity
-              onPress={() =>
-                Actions.pageB({ param1: "hello", param2: "world" })}
-            >
+            <TouchableOpacity onPress={() => Actions.ContributionShow({ id })}>
               <Text style={styles.title}>
                 {title}
               </Text>
@@ -58,7 +55,7 @@ export default ({ user, title, createdAt }: Item) =>
       </Grid>
     </Body>
     <Right>
-      <TouchableOpacity onPress={Actions.pageB}>
+      <TouchableOpacity onPress={() => Actions.ContributionShow({ id })}>
         <Icon name="arrow-forward" />
       </TouchableOpacity>
     </Right>
