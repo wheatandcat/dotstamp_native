@@ -13,7 +13,7 @@ export default () =>
   <Provider store={store}>
     <Router>
       <Scene key="root">
-        <Scene key="pageA" title="PageA" component={ContributionList} />
+        <Scene key="pageA" title="最新の投稿" component={ContributionList} />
         <Scene key="pageB" title="PageB" component={ContributionShow} />
       </Scene>
     </Router>
