@@ -1,0 +1,6 @@
+languages:
+  JavaScript: true
+exclude_paths:
+- "**/*/stories.js"
+- "**/*/*.test.js"
+- "flow-typed/**/*"
