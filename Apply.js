@@ -5,6 +5,7 @@ import { Provider } from "react-redux"
 import { Scene, Router } from "react-native-router-flux"
 import ContributionList from "./redux/containers/Contribution/List"
 import ContributionShow from "./redux/containers/Contribution/Show"
+import ContributionYoutube from "./redux/containers/Contribution/Youtube"
 import createStore from "./redux/createStore"
 
 const store = createStore()
@@ -18,7 +19,12 @@ export default () =>
           title="最新の投稿"
           component={ContributionList}
         />
-        <Scene key="ContributionShow" title="投稿" component={ContributionShow} />
+        <Scene key="ContributionShow" title="記事" component={ContributionShow} />
+        <Scene
+          key="ContributionYoutube"
+          title="Youtube"
+          component={ContributionYoutube}
+        />
       </Scene>
     </Router>
   </Provider>

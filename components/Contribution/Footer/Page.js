@@ -1,3 +1,4 @@
+// @flow
 import React from "react"
 import { Footer, FooterTab, Button, Icon, Text } from "native-base"
 import { Actions } from "react-native-router-flux"

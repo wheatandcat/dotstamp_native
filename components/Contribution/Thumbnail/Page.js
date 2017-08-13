@@ -6,6 +6,7 @@ import { Col, Row, Grid } from "react-native-easy-grid"
 import { Actions } from "react-native-router-flux"
 import { dateFormat } from "../../../libs/date"
 import type { Item } from "../List/Page"
+import Tags from "../Tag/"
 
 const styles = StyleSheet.create({
   user: {
@@ -24,7 +25,7 @@ const styles = StyleSheet.create({
   }
 })
 
-export default ({ id, user, title, createdAt }: Item) =>
+export default ({ id, user, title, tags, createdAt }: Item) =>
   <ListItem>
     <Thumbnail
       source={{ uri: "http://dotstamp.com/static/files/icon/1.jpg" }}
@@ -50,6 +51,11 @@ export default ({ id, user, title, createdAt }: Item) =>
                 {title}
               </Text>
             </TouchableOpacity>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <Tags tags={tags} />
           </Col>
         </Row>
       </Grid>

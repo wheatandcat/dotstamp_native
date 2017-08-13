@@ -2,7 +2,7 @@
 import React from "react"
 import { Container, Content, List } from "native-base"
 import type { Item } from "./../type"
-import { Page } from "../Thumbnail"
+import Page from "../Thumbnail"
 import Footer from "../Footer"
 
 type Props = {

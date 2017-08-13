@@ -4,7 +4,7 @@ import { Container, Content } from "native-base"
 import { iconURL } from "../../../libs/image"
 import { dateFormat } from "../../../libs/date"
 import type { ItemDetail } from "./../type"
-import { Header as ShowHeader, List } from "./"
+import { Header as ShowHeader, List, Segment } from "./"
 import Footer from "../Footer"
 
 type Props = {
@@ -13,7 +13,8 @@ type Props = {
 
 export default ({ item }: Props) =>
   <Container>
-    <Content>
+    <Segment id={item.id} selected="list" />
+    <Content padder>
       <ShowHeader
         name={item.user.name}
         avatarURL={iconURL(item.user.profileImageID)}

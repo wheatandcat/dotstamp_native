@@ -1,6 +1,6 @@
 import React from "react"
 import { storiesOf } from "@storybook/react-native"
-import { Frame, Header, List } from "./"
+import { Frame, Header, List, Segment } from "./"
 
 storiesOf("Contribution/Show", module)
   .add("Header", () =>
@@ -13,6 +13,7 @@ storiesOf("Contribution/Show", module)
       following={false}
     />
   )
+  .add("Segment", () => <Segment id={1} selected="list" />)
   .add("List", () =>
     <List
       body={[

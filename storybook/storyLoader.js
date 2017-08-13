@@ -10,6 +10,9 @@ function loadStories() {
   require('../components/Contribution/Footer/stories.js');
   require('../components/Contribution/List/stories.js');
   require('../components/Contribution/Show/stories.js');
+  require('../components/Contribution/Tag/stories.js');
+  require('../components/Contribution/Thumbnail/stories.js');
+  require('../components/Contribution/Youtube/stories.js');
   
 }
 
