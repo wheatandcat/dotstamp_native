@@ -9,6 +9,7 @@ function loadStories() {
   require('../components/Contribution/Balloon/stories.js');
   require('../components/Contribution/Footer/stories.js');
   require('../components/Contribution/List/stories.js');
+  require('../components/Contribution/Search/stories.js');
   require('../components/Contribution/Show/stories.js');
   require('../components/Contribution/Tag/stories.js');
   require('../components/Contribution/Thumbnail/stories.js');
