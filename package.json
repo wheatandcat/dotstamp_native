@@ -42,18 +42,14 @@
   },
   "config": {
     "react-native-storybook-loader": {
-      "searchDir": [
-        "./components"
-      ],
+      "searchDir": ["./components"],
       "pattern": "**/stories.js",
       "outputFile": "./storybook/storyLoader.js"
     }
   },
   "jest": {
     "preset": "jest-expo",
-    "transformIgnorePatterns": [
-      "/node_modules/(?!native-base)/"
-    ]
+    "transformIgnorePatterns": ["/node_modules/(?!native-base)/"]
   },
   "dependencies": {
     "@expo/vector-icons": "^5.0.0",

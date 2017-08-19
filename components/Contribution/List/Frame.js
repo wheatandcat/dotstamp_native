@@ -13,7 +13,7 @@ export default ({ list }: Props) =>
   <Container>
     <Content>
       <List style={{ backgroundColor: "rgb(255, 255, 255)" }}>
-        {list.map(item => <Page key={item.title} {...item} />)}
+        {list.map(item => <Page key={item.title} {...item} match="" />)}
       </List>
     </Content>
     <Footer selected="list" />

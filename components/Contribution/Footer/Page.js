@@ -22,7 +22,7 @@ const items: Array<Item> = [
   {
     name: "検索",
     icon: "search",
-    action: () => Actions.ContributionList({ order: 0 })
+    action: () => Actions.ContributionSearch({ search: "", order: 0 })
   },
   {
     name: "ユーザ",

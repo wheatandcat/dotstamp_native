@@ -1,4 +1,5 @@
 import { getStorybookUI, configure } from '@storybook/react-native';
+import { Container } from "./container"
 import { loadStories } from './storyLoader';
 
 configure(() => {

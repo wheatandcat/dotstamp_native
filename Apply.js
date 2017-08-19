@@ -5,6 +5,7 @@ import { Provider } from "react-redux"
 import { Scene, Router } from "react-native-router-flux"
 import ContributionList from "./redux/containers/Contribution/List"
 import ContributionShow from "./redux/containers/Contribution/Show"
+import ContributionSearch from "./redux/containers/Contribution/Search"
 import ContributionYoutube from "./redux/containers/Contribution/Youtube"
 import createStore from "./redux/createStore"
 
@@ -24,6 +25,11 @@ export default () =>
           key="ContributionYoutube"
           title="Youtube"
           component={ContributionYoutube}
+        />
+        <Scene
+          key="ContributionSearch"
+          title="検索"
+          component={ContributionSearch}
         />
       </Scene>
     </Router>

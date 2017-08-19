@@ -1,15 +1,12 @@
 // @flow
 /* eslint-disable import/prefer-default-export */
-const host: string = "http://dotstamp.com/api/"
+const host: string = "https://dotstamp.com/api/"
 const fetchStateList: Object = {}
 
 /**
  * 通信するか判定する
- *
- * @param  {string} url URL
- * @return {bool} 通信フラグ
  */
-function shouldFetchPosts(url: string): boolean {
+function shouldFetch(url: string): boolean {
   if (fetchStateList[url] === undefined) {
     fetchStateList[url] = {
       isFetching: false
@@ -25,16 +22,12 @@ function shouldFetchPosts(url: string): boolean {
 
 /**
  * レスポンスを返す
- *
- * @param  {string} url URL
- * @param  {any} res レスポンス
- * @return {object} アクション
  */
-function receiveResponse(url: string, res: any): Object {
+function receiveResponse(type: string, url: string, res: any): Object {
   fetchStateList[url].isFetching = false
 
   return {
-    type: "GET",
+    type,
     res,
     receivedAt: Date.now()
   }
@@ -42,10 +35,6 @@ function receiveResponse(url: string, res: any): Object {
 
 /**
  * エラーレスポンスを返す
- *
- * @param  {string} url URL
- * @param  {object} response レスポンス
- * @return {object} アクション
  */
 function receiveErrorResponse(url: string, response: Object) {
   fetchStateList[url].isFetching = false
@@ -59,12 +48,16 @@ function receiveErrorResponse(url: string, response: Object) {
   }
 }
 
+/**
+ * [GET]responseを取得する
+ */
 function fetchGets(url: string) {
   const requestParams = {
     method: "GET",
     credentials: "same-origin",
     headers: {
-      "Content-Type": "pplication/json"
+      Accept: "application/json",
+      "Content-Type": "application/json"
     }
   }
 
@@ -81,20 +74,61 @@ function fetchGets(url: string) {
           return dispatch(receiveErrorResponse(url, json))
         }
 
-        return dispatch(receiveResponse(url, json))
+        return dispatch(receiveResponse("GET", url, json))
       })
 }
 
 /**
- * 必要な場合は通信しテキストを取得する
- *
- * @param  {string} url URL
- * @return {object} アクション
+ * [GET]通信する
  */
 export function fetchGetsIfNeeded(url: string): Object {
   return dispatch => {
-    if (shouldFetchPosts(url)) {
+    if (shouldFetch(url)) {
       return dispatch(fetchGets(url))
+    }
+
+    return Promise.resolve()
+  }
+}
+
+/**
+ * [POST]responseを取得する
+ */
+function fetchPosts(url: string, paramas: Object) {
+  const requestParams = {
+    method: "POST",
+    credentials: "same-origin",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(paramas)
+  }
+
+  return dispatch =>
+    fetch(host + url, requestParams)
+      .then(response =>
+        response.json().then(json => ({
+          status: response.status,
+          json
+        }))
+      )
+      .then(({ status, json }) => {
+        if (status >= 400) {
+          return dispatch(receiveErrorResponse(url, json))
+        }
+
+        return dispatch(receiveResponse("POST", url, json))
+      })
+}
+
+/**
+ * [POST]通信する
+ */
+export function fetchPostsIfNeeded(url: string, paramas: Object = {}): Object {
+  return dispatch => {
+    if (shouldFetch(url)) {
+      return dispatch(fetchPosts(url, paramas))
     }
 
     return Promise.resolve()
