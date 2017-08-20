@@ -7027,6 +7027,14 @@ react-native-easy-grid@0.1.15, react-native-easy-grid@^0.1.15:
   dependencies:
     lodash "^4.11.1"
 
+react-native-infinite-scroll-view@^0.4.3:
+  version "0.4.3"
+  resolved "https://registry.yarnpkg.com/react-native-infinite-scroll-view/-/react-native-infinite-scroll-view-0.4.3.tgz#bc5dfb1645b8966bb6686d4cba899acb229ca003"
+  dependencies:
+    prop-types "^15.5.10"
+    react-clone-referenced-element "^1.0.1"
+    react-native-scrollable-mixin "^1.0.0"
+
 "react-native-keyboard-aware-scroll-view@https://github.com/GeekyAnts/react-native-keyboard-aware-scroll-view":
   version "0.2.9"
   resolved "https://github.com/GeekyAnts/react-native-keyboard-aware-scroll-view#f4805f254d6cc8e3329f5fb224944401f66655db"
@@ -7074,6 +7082,10 @@ react-native-scripts@1.0.0:
     progress "^2.0.0"
     qrcode-terminal "^0.11.0"
     xdl "43.0.0"
+
+react-native-scrollable-mixin@^1.0.0:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/react-native-scrollable-mixin/-/react-native-scrollable-mixin-1.0.1.tgz#34a32167b64248594154fd0d6a8b03f22740548e"
 
 react-native-storybook-loader@^1.5.1:
   version "1.5.1"
@@ -8785,7 +8797,7 @@ webpack-sources@^1.0.1:
     webpack-sources "^1.0.1"
     yargs "^8.0.2"
 
-"websql@github:expo/node-websql#18.0.0":
+websql@expo/node-websql#18.0.0:
   version "0.4.4"
   resolved "https://codeload.github.com/expo/node-websql/tar.gz/e364fa65146a9e2157a19e5c719e7702c2b6b87a"
   dependencies:

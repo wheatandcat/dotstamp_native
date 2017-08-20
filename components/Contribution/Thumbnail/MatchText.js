@@ -23,10 +23,13 @@ const styles = StyleSheet.create({
 function replaceMatch(str: string, replace: string): React$Element {
   const regex = new RegExp(`${replace}(.*?)`, "g")
 
-  return str.split(regex).map((line, i) => {
+  const tmp = str.replace(/\r?\n/g, "")
+
+  return tmp.split(regex).map((line, i) => {
     if (line === "" && i > 0) {
+      /* eslint-disable react/no-array-index-key */
       return (
-        <Text key={line} style={styles.match}>
+        <Text key={i} style={styles.match}>
           {replace}
         </Text>
       )
@@ -47,7 +50,7 @@ function getMatchString(
   const index = str.indexOf(replace)
   const len = str.length
 
-  const start = index < 11 ? 0 : index - 10
+  const start = index <= 10 ? 0 : index - 10
   const end = len < index + maxNumber ? len : index + maxNumber
 
   return replaceMatch(`${str.substring(start, end)}...`, replace)
@@ -55,5 +58,5 @@ function getMatchString(
 
 export default ({ text, match }: Props) =>
   <Text style={styles.text}>
-    {getMatchString(text, match, 30)}
+    {getMatchString(text, match, 20)}
   </Text>

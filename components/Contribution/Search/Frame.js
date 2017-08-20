@@ -6,8 +6,6 @@ import {
   Item,
   Input,
   Icon,
-  Button,
-  Text,
   Content,
   List
 } from "native-base"
@@ -32,12 +30,11 @@ export default ({ list, search, changeSearch, onSearch }: Props) =>
           placeholder="検索ワード"
           fixedLabel={false}
           onChangeText={text => changeSearch(text)}
+          onEndEditing={() => onSearch(search)}
           value={search}
+          returnKeyType="search"
         />
       </Item>
-      <Button transparent onPress={() => onSearch(search)}>
-        <Text>検索</Text>
-      </Button>
     </Header>
     <Content>
       {(() => {
@@ -47,7 +44,9 @@ export default ({ list, search, changeSearch, onSearch }: Props) =>
 
         return (
           <List style={{ backgroundColor: "rgb(255, 255, 255)" }}>
-            {list.map(item => <Page key={item.title} {...item} />)}
+            {list.map(item =>
+              <Page key={item.title} {...item} match={search} />
+            )}
           </List>
         )
       })()}

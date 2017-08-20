@@ -18,9 +18,9 @@ const styles = StyleSheet.create({
     height: 110
   },
   matchText: {
-    top: 10
+    top: 15
   },
-  tags: { top: 5 },
+  tags: { top: 10 },
   user: {
     fontSize: 12
   },
@@ -84,7 +84,11 @@ export default ({ id, user, title, tags, createdAt, search, match }: Props) =>
                 return (
                   <Row style={styles.matchText}>
                     <Col>
-                      <MatchText text={search} match={match} />
+                      <TouchableOpacity
+                        onPress={() => Actions.ContributionShow({ id })}
+                      >
+                        <MatchText text={search} match={match} />
+                      </TouchableOpacity>
                     </Col>
                   </Row>
                 )
