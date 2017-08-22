@@ -2,7 +2,7 @@
   "expo": {
     "name": "dotstamp",
     "slug": "dotstamp",
-    "sdkVersion": "19.0.0",
+    "sdkVersion": "20.0.0",
     "privacy": "public"
   }
 }
