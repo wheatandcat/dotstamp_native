@@ -6,6 +6,7 @@ import type { State } from "../../modules/Contribution/List"
 import { fetchGetsIfNeeded } from "../../../libs/fetch"
 
 const mapStateToProps = (state: State) => ({
+  page: state.ContributionList.page,
   list: state.ContributionList.list
 })
 
@@ -14,7 +15,7 @@ const mapDispatchToProps = (dispatch: Function) => ({
     dispatch(
       fetchGetsIfNeeded(`contributions/list/${order}`)
     ).then(({ res }) => {
-      dispatch(Items(res))
+      dispatch(Items(res, order))
     })
 })
 

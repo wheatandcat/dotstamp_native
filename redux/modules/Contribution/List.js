@@ -6,25 +6,29 @@ import type { Item } from "../../../components/Contribution/type"
 export type Action = {
   type: string,
   payload?: {
+    page: number,
     list: Array<Item>
   }
 }
 
 export type ActionAsync = (dispatch: Function, getState: Function) => void
 
-export const Items = (list: Array<Item>): Action => ({
+export const Items = (list: Array<Item>, page: number): Action => ({
   type: "CONTRBUTION/LIST",
   payload: {
+    page,
     list
   }
 })
 
 // reducer
 export type State = {
+  page: number,
   list: Array<Item>
 }
 
 const initialState: State = {
+  page: 0,
   list: []
 }
 
@@ -32,7 +36,8 @@ export const reducer = handleActions(
   {
     "CONTRBUTION/LIST": (state: State, action) => ({
       ...state,
-      list: action.payload.list
+      list: action.payload.list,
+      page: action.payload.page
     })
   },
   initialState
