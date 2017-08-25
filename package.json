@@ -56,7 +56,7 @@
     ]
   },
   "dependencies": {
-    "@expo/vector-icons": "^5.0.0",
+    "@expo/vector-icons": "^5.1.0",
     "babel-preset-react-native": "^2.1.0",
     "dateformat": "^2.0.0",
     "expo": "^20.0.0",

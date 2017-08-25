@@ -17,17 +17,17 @@ const items: Array<Item> = [
   {
     name: "投稿",
     icon: "list",
-    action: () => Actions.ContributionList({ order: 0 })
+    action: () => Actions["投稿"]({ order: 0 })
   },
   {
     name: "検索",
     icon: "search",
-    action: () => Actions.ContributionSearch({ search: "", order: 0 })
+    action: () => Actions["検索"]({ search: "", order: 0 })
   },
   {
     name: "ユーザ",
     icon: "person",
-    action: () => Actions.ContributionList({ order: 0 })
+    action: () => Actions["ユーザ"]({ order: 0 })
   }
 ]
 

@@ -14,6 +14,8 @@ function loadStories() {
   require('../components/Contribution/Tag/stories.js');
   require('../components/Contribution/Thumbnail/stories.js');
   require('../components/Contribution/Youtube/stories.js');
+  require('../components/Divider/stories.js');
+  require('../components/Login/stories.js');
   
 }
 

@@ -10,7 +10,6 @@ import {
   List
 } from "native-base"
 import type { Item as ItemType } from "./../type"
-import Footer from "../Footer"
 import Page from "../Thumbnail"
 import { NoMatch } from "./"
 
@@ -51,5 +50,4 @@ export default ({ list, search, changeSearch, onSearch }: Props) =>
         )
       })()}
     </Content>
-    <Footer selected="search" />
   </Container>

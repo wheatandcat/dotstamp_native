@@ -3,7 +3,7 @@ import React from "react"
 import { Container, Content, List, Spinner, View } from "native-base"
 import type { Item } from "./../type"
 import Page from "../Thumbnail"
-import Footer from "../Footer"
+
 /* eslint-disable class-methods-use-this,react/jsx-no-bind,no-underscore-dangle */
 let list = []
 
@@ -50,9 +50,6 @@ export default class Frame extends React.Component<void, Props, State> {
       refreshing: false,
       next: this.props.page + 1 < this.props.maxPage
     })
-  }
-  componentWillUnmount() {
-    list = []
   }
   props: Props
   scrollView: {
@@ -113,7 +110,6 @@ export default class Frame extends React.Component<void, Props, State> {
             return <View />
           })()}
         </Content>
-        <Footer selected="list" />
       </Container>
     )
   }
