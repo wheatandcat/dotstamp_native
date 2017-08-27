@@ -21,7 +21,7 @@ export const Items = (list: Array<Item>, page: number): Action => ({
   }
 })
 
-// reducer
+// reducers
 export type State = {
   page: number,
   list: Array<Item>

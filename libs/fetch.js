@@ -36,13 +36,13 @@ function receiveResponse(type: string, url: string, res: any): Object {
 /**
  * エラーレスポンスを返す
  */
-function receiveErrorResponse(url: string, response: Object) {
+function receiveErrorResponse(url: string, res: any): Object {
   fetchStateList[url].isFetching = false
 
   return {
     type: "ERROR",
-    message: response.Message,
-    errCode: response.ErrCode,
+    message: res.message,
+    errCode: res.errCode,
     show: true,
     receivedAt: Date.now()
   }
@@ -69,13 +69,8 @@ function fetchGets(url: string) {
           json
         }))
       )
-      .then(({ status, json }) => {
-        if (status >= 400) {
-          return dispatch(receiveErrorResponse(url, json))
-        }
-
-        return dispatch(receiveResponse("GET", url, json))
-      })
+      .then(({ json }) => dispatch(receiveResponse("GET", url, json)))
+      .catch(({ json }) => dispatch(receiveErrorResponse(url, json)))
 }
 
 /**
@@ -113,13 +108,8 @@ function fetchPosts(url: string, paramas: Object) {
           json
         }))
       )
-      .then(({ status, json }) => {
-        if (status >= 400) {
-          return dispatch(receiveErrorResponse(url, json))
-        }
-
-        return dispatch(receiveResponse("POST", url, json))
-      })
+      .then(({ json }) => dispatch(receiveResponse("POST", url, json)))
+      .catch(({ json }) => dispatch(receiveErrorResponse(url, json)))
 }
 
 /**

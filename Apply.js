@@ -9,6 +9,7 @@ import ContributionList from "./redux/containers/Contribution/List"
 import ContributionShow from "./redux/containers/Contribution/Show"
 import ContributionSearch from "./redux/containers/Contribution/Search"
 import ContributionYoutube from "./redux/containers/Contribution/Youtube"
+import Login from "./redux/containers/Login/Page"
 import createStore from "./redux/createStore"
 
 const store = createStore()
@@ -20,8 +21,14 @@ const styles = StyleSheet.create({
 export default () =>
   <Provider store={store}>
     <Router>
-      <Scene key="root">
-        <Scene key="tabbar" tabs tabBarStyle={styles.tabBar}>
+      <Scene key="root" hideNavBar>
+        <Scene
+          key="tabbar"
+          tabs
+          tabBarStyle={styles.tabBar}
+          gestureEnabled={false}
+          activeBackgroundColor="#ddd"
+        >
           <Scene
             key="投稿"
             title="最新の投稿"
@@ -40,11 +47,12 @@ export default () =>
           <Scene
             key="ユーザ"
             title="ユーザ"
-            component={ContributionSearch}
+            component={Login}
             icon={TabIcon}
             iconName="person"
           />
         </Scene>
+
         <Scene key="ContributionShow" title="記事" component={ContributionShow} />
         <Scene
           key="ContributionYoutube"

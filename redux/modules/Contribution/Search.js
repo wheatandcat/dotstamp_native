@@ -32,7 +32,7 @@ export const Items = (list: Array<Item>, count: number): any => ({
   }
 })
 
-// reducer
+// reducers
 export type State = {
   search: string,
   order: number,
