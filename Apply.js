@@ -10,6 +10,7 @@ import ContributionShow from "./redux/containers/Contribution/Show"
 import ContributionSearch from "./redux/containers/Contribution/Search"
 import ContributionYoutube from "./redux/containers/Contribution/Youtube"
 import Login from "./redux/containers/Login/Page"
+import User from "./redux/containers/User/Page"
 import createStore from "./redux/createStore"
 
 const store = createStore()
