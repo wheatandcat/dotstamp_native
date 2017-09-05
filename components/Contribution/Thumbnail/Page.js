@@ -5,7 +5,7 @@ import { Body, Text, Thumbnail, ListItem } from "native-base"
 import { Col, Row, Grid } from "react-native-easy-grid"
 import { Actions } from "react-native-router-flux"
 import { dateFormat } from "../../../libs/date"
-import type { Item } from "../List/Page"
+import type { Item } from "./../type"
 import Tags from "../Tag/"
 import { MatchText } from "./"
 

@@ -13,6 +13,7 @@ import { fetchPostsIfNeeded } from "../../../libs/fetch"
 const mapStateToProps = (state: State) => ({
   email: state.Login.email,
   password: state.Login.password,
+  login: state.Login.login,
   error: state.Login.error
 })
 

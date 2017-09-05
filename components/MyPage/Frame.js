@@ -1,6 +1,7 @@
 // @flow
 import React from "react"
 import {
+  Root,
   Container,
   Content,
   List,
@@ -19,39 +20,44 @@ type Props = {
   name: string,
   avatarURL: string,
   userList: Array<Item>,
-  followList: Array<Item>
+  followList: Array<Item>,
+  onLogout: () => void
 }
 
-export default ({ name, avatarURL, userList, followList }: Props) =>
-  <Container>
-    <Content padder>
-      <User name={name} avatarURL={avatarURL} />
-      <Divider />
-      <Tabs>
-        <Tab
-          heading={
-            <TabHeading>
-              <Icon name="list" />
-              <Text>My投稿</Text>
-            </TabHeading>
-          }
-        >
-          <List style={{ backgroundColor: "rgb(255, 255, 255)" }}>
-            {userList.map(item => <Page key={item.id} {...item} match="" />)}
-          </List>
-        </Tab>
-        <Tab
-          heading={
-            <TabHeading>
-              <Icon name="thumbs-up" active />
-              <Text>フォロー記事</Text>
-            </TabHeading>
-          }
-        >
-          <List style={{ backgroundColor: "rgb(255, 255, 255)" }}>
-            {followList.map(item => <Page key={item.id} {...item} match="" />)}
-          </List>
-        </Tab>
-      </Tabs>
-    </Content>
-  </Container>
+export default ({ name, avatarURL, userList, followList, onLogout }: Props) =>
+  <Root>
+    <Container>
+      <Content padder>
+        <User name={name} avatarURL={avatarURL} onLogout={onLogout} />
+        <Divider />
+        <Tabs>
+          <Tab
+            heading={
+              <TabHeading>
+                <Icon name="list" />
+                <Text>My投稿</Text>
+              </TabHeading>
+            }
+          >
+            <List style={{ backgroundColor: "rgb(255, 255, 255)" }}>
+              {userList.map(item => <Page key={item.id} {...item} match="" />)}
+            </List>
+          </Tab>
+          <Tab
+            heading={
+              <TabHeading>
+                <Icon name="thumbs-up" active />
+                <Text>フォロー記事</Text>
+              </TabHeading>
+            }
+          >
+            <List style={{ backgroundColor: "rgb(255, 255, 255)" }}>
+              {followList.map(item =>
+                <Page key={item.id} {...item} match="" />
+              )}
+            </List>
+          </Tab>
+        </Tabs>
+      </Content>
+    </Container>
+  </Root>

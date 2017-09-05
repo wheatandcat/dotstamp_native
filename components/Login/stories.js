@@ -1,11 +1,11 @@
 import React from "react"
 import { storiesOf } from "@storybook/react-native"
 import { action } from "@storybook/addon-actions"
-import Page, { Form, Platform } from "./"
+import { Frame, Form, Platform } from "./"
 
 storiesOf("Login", module)
-  .add("Page", () =>
-    <Page
+  .add("Frame", () =>
+    <Frame
       email="foo"
       password="bar"
       error={{

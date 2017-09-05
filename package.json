@@ -74,6 +74,8 @@
     "recompose": "^0.25.0",
     "redux": "^3.7.2",
     "redux-actions": "^2.2.1",
+    "redux-localstorage": "rc",
+    "redux-localstorage-filter": "^0.1.1",
     "redux-thunk": "^2.2.0"
   }
 }
