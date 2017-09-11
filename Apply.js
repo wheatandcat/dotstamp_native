@@ -4,11 +4,12 @@ import React from "react"
 import { Provider } from "react-redux"
 import { StyleSheet } from "react-native"
 import { Scene, Router } from "react-native-router-flux"
-import { TabIcon } from "././components/Contribution/Footer/"
+import { TabIcon } from "./components/Contribution/Footer/"
 import ContributionList from "./redux/containers/Contribution/List"
 import ContributionShow from "./redux/containers/Contribution/Show"
 import ContributionSearch from "./redux/containers/Contribution/Search"
 import ContributionYoutube from "./redux/containers/Contribution/Youtube"
+import Google from "./components/Google/Login"
 import Login from "./redux/containers/Login/Page"
 import createStore from "./redux/createStore"
 
@@ -59,6 +60,7 @@ export default () =>
           title="Youtube"
           component={ContributionYoutube}
         />
+        <Scene key="Google" title="ログイン" component={Google} />
       </Scene>
     </Router>
   </Provider>

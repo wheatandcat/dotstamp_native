@@ -1,6 +1,7 @@
 // @flow
 import React from "react"
 import { StyleSheet } from "react-native"
+import { Actions } from "react-native-router-flux"
 import { Button, Icon, Text, View } from "native-base"
 
 const styles = StyleSheet.create({
@@ -21,7 +22,12 @@ const styles = StyleSheet.create({
 
 export default () =>
   <View style={styles.form}>
-    <Button iconLeft block style={styles.google}>
+    <Button
+      iconLeft
+      block
+      style={styles.google}
+      onPress={() => Actions.Google()}
+    >
       <Icon name="logo-google" />
       <Text>Googleでログイン</Text>
     </Button>
