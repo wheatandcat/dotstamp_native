@@ -5,5 +5,7 @@ import StorybookUI from "./storybook"
 import App from "./Apply"
 
 console.log(MODE_ENV)
+
 module.exports = MODE_ENV === "storybook" && __DEV__ ? StorybookUI : App
+
 // module.exports = App

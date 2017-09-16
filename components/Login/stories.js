@@ -4,7 +4,7 @@ import { action } from "@storybook/addon-actions"
 import { Frame, Form, Platform } from "./"
 
 storiesOf("Login", module)
-  .add("Frame", () =>
+  .add("Frame", () => (
     <Frame
       email="foo"
       password="bar"
@@ -14,8 +14,8 @@ storiesOf("Login", module)
       changeEmail={action("email")}
       changePassword={action("password")}
     />
-  )
-  .add("Form", () =>
+  ))
+  .add("Form", () => (
     <Form
       email="foo"
       password="bar"
@@ -25,8 +25,8 @@ storiesOf("Login", module)
       changeEmail={action("email")}
       changePassword={action("password")}
     />
-  )
-  .add("Form with error", () =>
+  ))
+  .add("Form with error", () => (
     <Form
       email="foo"
       password="bar"
@@ -36,5 +36,5 @@ storiesOf("Login", module)
       changeEmail={action("email")}
       changePassword={action("password")}
     />
-  )
+  ))
   .add("Platform", () => <Platform />)

@@ -9,7 +9,7 @@ import ContributionList from "./redux/containers/Contribution/List"
 import ContributionShow from "./redux/containers/Contribution/Show"
 import ContributionSearch from "./redux/containers/Contribution/Search"
 import ContributionYoutube from "./redux/containers/Contribution/Youtube"
-import Google from "./components/Google/Login"
+import Facebook from "./components/Facebook/Login"
 import Login from "./redux/containers/Login/Page"
 import createStore from "./redux/createStore"
 
@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
   tabBar: {}
 })
 
-export default () =>
+export default () => (
   <Provider store={store}>
     <Router>
       <Scene key="root" hideNavBar>
@@ -60,7 +60,8 @@ export default () =>
           title="Youtube"
           component={ContributionYoutube}
         />
-        <Scene key="Google" title="ログイン" component={Google} />
+        <Scene key="Facebook" title="ログイン" component={Facebook} />
       </Scene>
     </Router>
   </Provider>
+)

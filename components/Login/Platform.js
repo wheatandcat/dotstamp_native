@@ -20,23 +20,16 @@ const styles = StyleSheet.create({
   }
 })
 
-export default () =>
+export default () => (
   <View style={styles.form}>
     <Button
       iconLeft
       block
-      style={styles.google}
-      onPress={() => Actions.Google()}
+      style={styles.facebook}
+      onPress={() => Actions.Facebook()}
     >
-      <Icon name="logo-google" />
-      <Text>Googleでログイン</Text>
-    </Button>
-    <Button iconLeft block style={styles.twitter}>
-      <Icon name="logo-twitter" />
-      <Text>Twitterでログイン</Text>
-    </Button>
-    <Button iconLeft block style={styles.facebook}>
       <Icon name="logo-facebook" />
       <Text>Facebookでログイン</Text>
     </Button>
   </View>
+)

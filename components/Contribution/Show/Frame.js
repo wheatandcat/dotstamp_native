@@ -23,7 +23,7 @@ type Props = {
   item: ItemDetail
 }
 
-export default ({ item }: Props) =>
+export default ({ item }: Props) => (
   <Container>
     <Header>
       <Left>
@@ -51,3 +51,4 @@ export default ({ item }: Props) =>
     </Content>
     <Footer selected="list" />
   </Container>
+)

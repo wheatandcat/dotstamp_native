@@ -52,8 +52,8 @@ export type State = {
 }
 
 const initialState: State = {
-  email: "wheatandcat@gmail.com",
-  password: "sns896767",
+  email: "",
+  password: "",
   login: false,
   error: {
     message: ""
