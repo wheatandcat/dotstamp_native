@@ -20,7 +20,7 @@ type Props = {
   item: ItemDetail
 }
 
-export default ({ item }: Props) =>
+export default ({ item }: Props) => (
   <Container>
     <Header>
       <Left>
@@ -38,3 +38,4 @@ export default ({ item }: Props) =>
     <Segment id={item.id} selected="youtube" />
     <Movie videoID={item.movie.movie_id} />
   </Container>
+)

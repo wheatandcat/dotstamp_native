@@ -15,11 +15,6 @@ function loadStories() {
   require('../components/Contribution/Thumbnail/stories.js');
   require('../components/Contribution/Youtube/stories.js');
   require('../components/Divider/stories.js');
-<<<<<<< HEAD
-  require('../components/Facebook/stories.js');
-=======
-  require('../components/Google/stories.js');
->>>>>>> b8a205df65b132cd7ca33797443f1a7b3fab245d
   require('../components/Login/stories.js');
   require('../components/MyPage/stories.js');
   

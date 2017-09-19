@@ -38,6 +38,7 @@ export default ({ item }: Props) => (
       <Right />
     </Header>
     <Segment id={item.id} selected="list" />
+
     <Content padder>
       <ShowHeader
         name={item.user.name}

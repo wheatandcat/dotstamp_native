@@ -30,23 +30,18 @@ function menu(item: Item, id: number, selected: boolean) {
   if (selected) {
     return (
       <Button active key={item.icon}>
-        <Text>
-          {item.name}
-        </Text>
+        <Text>{item.name}</Text>
       </Button>
     )
   }
 
   return (
     <Button onPress={() => item.action(id)} key={item.icon}>
-      <Text>
-        {item.name}
-      </Text>
+      <Text>{item.name}</Text>
     </Button>
   )
 }
 
-export default ({ id, selected }: Props) =>
-  <Segment>
-    {items.map(item => menu(item, id, item.icon === selected))}
-  </Segment>
+export default ({ id, selected }: Props) => (
+  <Segment>{items.map(item => menu(item, id, item.icon === selected))}</Segment>
+)

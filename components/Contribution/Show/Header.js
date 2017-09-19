@@ -49,25 +49,19 @@ export default ({
   createdAt,
   followCount,
   following
-}: Props) =>
+}: Props) => (
   <Card>
     <CardItem style={styles.user}>
       <Left>
         <Thumbnail square source={{ uri: avatarURL }} />
         <Body>
-          <Text>
-            {name}
-          </Text>
-          <Text note>
-            {createdAt}に投稿しました
-          </Text>
+          <Text>{name}</Text>
+          <Text note>{createdAt}に投稿しました</Text>
         </Body>
       </Left>
     </CardItem>
     <CardItem cardBody style={styles.body}>
-      <Text style={styles.title}>
-        {title}
-      </Text>
+      <Text style={styles.title}>{title}</Text>
     </CardItem>
     <CardItem style={styles.menu}>
       <Left>
@@ -90,10 +84,9 @@ export default ({
       <Right>
         <Button transparent>
           <Icon active name="thumbs-up" />
-          <Text>
-            &nbsp;&nbsp;{followCount}
-          </Text>
+          <Text>&nbsp;&nbsp;{followCount}</Text>
         </Button>
       </Right>
     </CardItem>
   </Card>
+)

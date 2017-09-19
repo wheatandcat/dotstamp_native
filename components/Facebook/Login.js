@@ -6,7 +6,10 @@ import queryString from "query-string"
 import Footer from "../Contribution/Footer"
 
 const AppID = "1696288387368219"
-const RedirectURI = "https://dotstamp.com/api/native/callback/"
+/* eslint-disable no-unused-vars,no-undef */
+const RedirectURI = __DEV__
+  ? "https://dotstamp.com/static/html/dev_auth.html"
+  : "https://dotstamp.com/static/html/auth.html"
 const FacebookAuthURI = `https://www.facebook.com/v2.8/dialog/oauth?response_type=token&client_id=${AppID}&redirect_uri=${RedirectURI}`
 
 const styles = StyleSheet.create({
@@ -28,13 +31,55 @@ export default class App extends React.Component {
     result: {} // we will put data about the user here
   }
 
+  _renderResult = () => {
+    if (!this.state.url || !this.state.accessToken || !this.state.result) {
+      return null
+    }
+
+    return (
+      <View>
+        <Text style={{ fontWeight: "bold" }}>Redirect received to:</Text>
+        <Text numberOfLines={2}>{this.state.url}</Text>
+
+        <Text style={{ fontWeight: "bold", marginTop: 15 }}>
+          Extracted this token from the redirect url:
+        </Text>
+        <Text numberOfLines={2}>{this.state.accessToken}</Text>
+
+        <Text style={{ fontWeight: "bold", marginTop: 15 }}>
+          For the following user
+        </Text>
+        <Text numberOfLines={2}>{JSON.stringify(this.state.result)}</Text>
+      </View>
+    )
+  }
+  _handlePressSignIn = async () => {
+    Linking.addEventListener("url", this._handleFacebookRedirect)
+    const result = await WebBrowser.openBrowserAsync(FacebookAuthURI)
+
+    Linking.removeEventListener("url", this._handleFacebookRedirect)
+  }
+
+  _handleFacebookRedirect = async event => {
+    WebBrowser.dismissBrowser()
+
+    const { access_token: accessToken } = queryString.parse(
+      queryString.extract(event.url)
+    )
+
+    const response = await fetch(
+      `https://graph.facebook.com/me?access_token=${accessToken}&fields=email`
+    )
+    const result = await response.json()
+    this.setState({ accessToken, url: event.url, result })
+  }
+
   render() {
-    console.log("render")
     return (
       <Container>
         <Content padder>
           <Button onPress={this._handlePressSignIn}>
-            <Text> Sign in with Facebook0</Text>
+            <Text> Sign in with Facebook</Text>
           </Button>
           {this._renderResult()}
 
@@ -45,63 +90,5 @@ export default class App extends React.Component {
         <Footer />
       </Container>
     )
-  }
-
-  _renderResult = () => {
-    console.log(this.state)
-    if (!this.state.url || !this.state.accessToken || !this.state.result) {
-      return null
-    }
-
-    return (
-      <View>
-        <Text style={{ fontWeight: "bold" }}>Redirect received to:</Text>
-        <Text numberOfLines={2}>
-          {this.state.url}
-        </Text>
-
-        <Text style={{ fontWeight: "bold", marginTop: 15 }}>
-          Extracted this token from the redirect url:
-        </Text>
-        <Text numberOfLines={2}>
-          {this.state.accessToken}
-        </Text>
-
-        <Text style={{ fontWeight: "bold", marginTop: 15 }}>
-          For the following user
-        </Text>
-        <Text numberOfLines={2}>
-          {JSON.stringify(this.state.result)}
-        </Text>
-      </View>
-    )
-  }
-  _handlePressSignIn = async () => {
-    Linking.addEventListener("url", this._handleFacebookRedirect)
-    console.log("_handlePressSignIn")
-    console.log(FacebookAuthURI)
-    const result = await WebBrowser.openBrowserAsync(FacebookAuthURI)
-    console.log({ result })
-
-    Linking.removeEventListener("url", this._handleFacebookRedirect)
-  }
-
-  _handleFacebookRedirect = async event => {
-    console.log("handleFacebookRedirect")
-    WebBrowser.dismissBrowser()
-
-    console.log(event.url)
-    const { access_token: accessToken } = queryString.parse(
-      queryString.extract(event.url)
-    )
-
-    console.log(accessToken)
-
-    const response = await fetch(
-      `https://graph.facebook.com/me?access_token=${accessToken}&fields=id,name,picture.type(large)`
-    )
-    const result = await response.json()
-    console.log(result)
-    this.setState({ accessToken, url: event.url, result })
   }
 }
