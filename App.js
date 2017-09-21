@@ -6,6 +6,6 @@ import App from "./Apply"
 
 console.log(MODE_ENV)
 console.log("AAA")
- module.exports = MODE_ENV === "storybook" && __DEV__ ? StorybookUI : App
+// module.exports = MODE_ENV === "storybook" && __DEV__ ? StorybookUI : App
 
-// module.exports = StorybookUI
+module.exports = StorybookUI

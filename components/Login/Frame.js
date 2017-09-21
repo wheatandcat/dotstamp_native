@@ -55,7 +55,7 @@ export default ({
   changeEmail,
   changePassword,
   onLogin
-}: Props) =>
+}: Props) => (
   <Container>
     <Content style={styles.content} padder>
       <H1 style={styles.title}>ログイン</H1>
@@ -68,9 +68,7 @@ export default ({
         if (error.message !== "") {
           return (
             <View style={styles.alert}>
-              <Text style={styles.alertText}>
-                {error.message}
-              </Text>
+              <Text style={styles.alertText}>{error.message}</Text>
             </View>
           )
         }
@@ -91,3 +89,4 @@ export default ({
       />
     </Content>
   </Container>
+)

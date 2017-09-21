@@ -32,7 +32,7 @@ export default ({
   changeEmail,
   changePassword,
   onLogin
-}: Props) =>
+}: Props) => (
   <Form>
     <Item floatingLabel error={error.message !== ""}>
       <Label>メールアドレス</Label>
@@ -49,3 +49,4 @@ export default ({
       <Text>ログイン</Text>
     </Button>
   </Form>
+)

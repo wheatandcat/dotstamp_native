@@ -2,29 +2,17 @@ import React from "react"
 import { storiesOf } from "@storybook/react-native"
 import { action } from "@storybook/addon-actions"
 import { Top } from "../../storybook/container"
-import { Frame, Form, Platform } from "./"
+import Page, { Form } from "./"
 
-storiesOf("Login", module)
-  .add("Frame", () => (
-    <Frame
-      email="foo"
-      password="bar"
-      error={{
-        message: ""
-      }}
-      changeEmail={action("email")}
-      changePassword={action("password")}
-    />
-  ))
+storiesOf("Auth", module)
   .add("Form", () => (
     <Top>
       <Form
-        email="foo"
+        email="foo@bar.com"
         password="bar"
         error={{
           message: ""
         }}
-        changeEmail={action("email")}
         changePassword={action("password")}
       />
     </Top>
@@ -32,18 +20,22 @@ storiesOf("Login", module)
   .add("Form with error", () => (
     <Top>
       <Form
-        email="foo"
+        email="foo@bar.com"
         password="bar"
         error={{
-          message: "メールアドレスとパスワードが一致しません"
+          message: "登録に失敗しました"
         }}
-        changeEmail={action("email")}
         changePassword={action("password")}
       />
     </Top>
   ))
-  .add("Platform", () => (
-    <Top>
-      <Platform />
-    </Top>
+  .add("Page", () => (
+    <Page
+      email="foo@bar.com"
+      password="bar"
+      error={{
+        message: ""
+      }}
+      changePassword={action("password")}
+    />
   ))

@@ -36,9 +36,7 @@ function menu(item: Item, selected: boolean) {
     return (
       <Button active key={item.icon}>
         <Icon active name={item.icon} />
-        <Text>
-          {item.name}
-        </Text>
+        <Text>{item.name}</Text>
       </Button>
     )
   }
@@ -46,16 +44,15 @@ function menu(item: Item, selected: boolean) {
   return (
     <Button onPress={item.action} key={item.icon}>
       <Icon name={item.icon} />
-      <Text>
-        {item.name}
-      </Text>
+      <Text>{item.name}</Text>
     </Button>
   )
 }
 
-export default ({ selected }: Props) =>
+export default ({ selected }: Props) => (
   <Footer>
     <FooterTab>
       {items.map(item => menu(item, item.icon === selected))}
     </FooterTab>
   </Footer>
+)

@@ -1,12 +1,10 @@
 // @flow
 import { WebBrowser } from "expo"
-import React from "react"
 import { Linking, StyleSheet } from "react-native"
-import { Container, Content, Button, Text, View } from "native-base"
 import { compose, withState, lifecycle, type HOC } from "recompose"
-
 import queryString from "query-string"
-import Footer from "../Contribution/Footer"
+import type { Err } from "../Auth/type"
+import Auth from "../Auth"
 
 const AppID = "1696288387368219"
 /* eslint-disable no-unused-vars,no-undef */
@@ -35,7 +33,11 @@ type State = {
 
 type BaseProps = {
   email: string,
-  setEmail: (email: string) => void
+  password: string,
+  error: Err,
+  setEmail: (email: string) => void,
+  changePassword: (password: string) => void,
+  onCrate: (email: string, password: string) => void
 }
 
 const Redirect = async (setEmail, event) => {
@@ -59,31 +61,6 @@ const Signin = async setEmail => {
   Linking.removeEventListener("url", event => Redirect(setEmail, event))
 }
 
-const baseComponent = ({ email, setEmail }: BaseProps) => (
-  <Container>
-    <Content padder>
-      <Button onPress={() => Signin(setEmail)}>
-        <Text> Sign in with Facebook</Text>
-      </Button>
-      {(() => {
-        if (email === "") {
-          return <Text> no </Text>
-        }
-
-        return (
-          <View>
-            <Text style={{ fontWeight: "bold", marginTop: 15 }}>
-              For the following user
-            </Text>
-            <Text numberOfLines={2}>{email}</Text>
-          </View>
-        )
-      })()}
-    </Content>
-    <Footer />
-  </Container>
-)
-
 const enhance: HOC<State, Props> = compose(
   withState("email", "setEmail", ""),
   lifecycle({
@@ -93,5 +70,5 @@ const enhance: HOC<State, Props> = compose(
   })
 )
 
-const EnhancedComponent = enhance(baseComponent)
+const EnhancedComponent = enhance(Auth)
 export default EnhancedComponent

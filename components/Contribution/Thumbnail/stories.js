@@ -4,7 +4,7 @@ import Page, { MatchText } from "./"
 import Center from "../../../storybook/container"
 
 storiesOf("Contribution/Thumbnail", module)
-  .add("Page", () =>
+  .add("Page", () => (
     <Page
       id={1}
       user={{
@@ -29,8 +29,8 @@ storiesOf("Contribution/Thumbnail", module)
       match=""
       createdAt="2017-07-23T20:17:19+09:00"
     />
-  )
-  .add("Page with Search", () =>
+  ))
+  .add("Page with Search", () => (
     <Page
       id={1}
       user={{
@@ -55,17 +55,17 @@ storiesOf("Contribution/Thumbnail", module)
       match="abc"
       createdAt="2017-07-23T20:17:19+09:00"
     />
-  )
-  .add("MatchText", () =>
+  ))
+  .add("MatchText", () => (
     <Center>
       <MatchText text="abcdefghijklmn" match="abc" />
     </Center>
-  )
-  .add("MatchText with over", () =>
+  ))
+  .add("MatchText with over", () => (
     <Center>
       <MatchText
         text="ilhoaklhklalksnbk,nslabcdefghijkljknslkbnbankjsbnvbmlsvnkllbnbnb kbdnkjdnmn"
         match="abc"
       />
     </Center>
-  )
+  ))

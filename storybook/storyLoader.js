@@ -6,6 +6,7 @@
 
 function loadStories() {
   
+  require('../components/Auth/stories.js');
   require('../components/Contribution/Balloon/stories.js');
   require('../components/Contribution/Footer/stories.js');
   require('../components/Contribution/List/stories.js');
