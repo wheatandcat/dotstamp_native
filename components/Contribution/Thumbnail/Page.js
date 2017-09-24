@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
   }
 })
 
-export default ({ id, user, title, tags, createdAt, search, match }: Props) =>
+export default ({ id, user, title, tags, createdAt, search, match }: Props) => (
   <ListItem style={styles.root}>
     <Body style={match !== "" ? { height: 110 } : { height: 70 }}>
       <Grid>
@@ -62,9 +62,7 @@ export default ({ id, user, title, tags, createdAt, search, match }: Props) =>
                 </Text>
               </Col>
               <Col>
-                <Text style={styles.date}>
-                  投稿:{dateFormat(createdAt)}
-                </Text>
+                <Text style={styles.date}>投稿:{dateFormat(createdAt)}</Text>
               </Col>
             </Row>
 
@@ -73,9 +71,7 @@ export default ({ id, user, title, tags, createdAt, search, match }: Props) =>
                 <TouchableOpacity
                   onPress={() => Actions.ContributionShow({ id })}
                 >
-                  <Text style={styles.title}>
-                    {title}
-                  </Text>
+                  <Text style={styles.title}>{title}</Text>
                 </TouchableOpacity>
               </Col>
             </Row>
@@ -106,3 +102,4 @@ export default ({ id, user, title, tags, createdAt, search, match }: Props) =>
       </Grid>
     </Body>
   </ListItem>
+)

@@ -1,7 +1,7 @@
 // @flow
 import React from "react"
 import { StyleSheet } from "react-native"
-import { Form, Item, Input, Label, Button, Text, View, H1 } from "native-base"
+import { Form, Item, Input, Label, Button, Text, View, H3 } from "native-base"
 import type { Err } from "./type"
 
 type Props = {
@@ -27,12 +27,16 @@ const styles = StyleSheet.create({
   }
 })
 
+/* eslint-disable no-unused-vars,no-undef */
 export default ({ email, password, error, changePassword, onCrate }: Props) => (
   <Form>
     <View style={styles.email}>
-      <H1 style={styles.emailText}>{email}</H1>
+      <H3>メールアドレス</H3>
     </View>
-    <Item floatingLabel error={error.message !== ""}>
+    <View style={styles.email}>
+      <H3 style={styles.emailText}>{email}</H3>
+    </View>
+    <Item floatingLabel>
       <Label>パスワード</Label>
       <Input value={password} onChangeText={changePassword} secureTextEntry />
     </Item>

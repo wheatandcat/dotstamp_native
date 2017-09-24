@@ -23,13 +23,15 @@ export default ({
   changePassword,
   onLogin
 }: Props) =>
-  !login
-    ? <Frame
-        email={email}
-        password={password}
-        error={error}
-        changeEmail={changeEmail}
-        changePassword={changePassword}
-        onLogin={onLogin}
-      />
-    : <User />
+  !login ? (
+    <Frame
+      email={email}
+      password={password}
+      error={error}
+      changeEmail={changeEmail}
+      changePassword={changePassword}
+      onLogin={onLogin}
+    />
+  ) : (
+    <User />
+  )

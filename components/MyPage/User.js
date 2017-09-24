@@ -1,7 +1,7 @@
 // @flow
 import React from "react"
 import { StyleSheet } from "react-native"
-import { Card, CardItem, Thumbnail, Left, Body, H2 } from "native-base"
+import { Card, CardItem, Thumbnail, Left, Body, H3 } from "native-base"
 import Divider from "../Divider"
 import { Logout } from "./"
 
@@ -23,18 +23,17 @@ const styles = StyleSheet.create({
   }
 })
 
-export default ({ name, avatarURL, onLogout }: Props) =>
+export default ({ name, avatarURL, onLogout }: Props) => (
   <Card>
     <CardItem style={styles.user}>
       <Left tyle={styles.left}>
         <Thumbnail square source={{ uri: avatarURL }} />
       </Left>
       <Body style={styles.name}>
-        <H2>
-          {name}
-        </H2>
+        <H3>{name}</H3>
         <Divider />
         <Logout onLogout={onLogout} />
       </Body>
     </CardItem>
   </Card>
+)

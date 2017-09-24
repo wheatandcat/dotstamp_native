@@ -24,7 +24,7 @@ type Props = {
   onLogout: () => void
 }
 
-export default ({ name, avatarURL, userList, followList, onLogout }: Props) =>
+export default ({ name, avatarURL, userList, followList, onLogout }: Props) => (
   <Root>
     <Container>
       <Content padder>
@@ -52,12 +52,13 @@ export default ({ name, avatarURL, userList, followList, onLogout }: Props) =>
             }
           >
             <List style={{ backgroundColor: "rgb(255, 255, 255)" }}>
-              {followList.map(item =>
+              {followList.map(item => (
                 <Page key={item.id} {...item} match="" />
-              )}
+              ))}
             </List>
           </Tab>
         </Tabs>
       </Content>
     </Container>
   </Root>
+)

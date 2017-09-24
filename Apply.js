@@ -9,7 +9,7 @@ import ContributionList from "./redux/containers/Contribution/List"
 import ContributionShow from "./redux/containers/Contribution/Show"
 import ContributionSearch from "./redux/containers/Contribution/Search"
 import ContributionYoutube from "./redux/containers/Contribution/Youtube"
-import Facebook from "./components/Facebook/Login"
+import Facebook from "./redux/containers/Facebook/Login"
 import Login from "./redux/containers/Login/Page"
 import createStore from "./redux/createStore"
 
