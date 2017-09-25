@@ -1,5 +1,4 @@
 // @flow
-
 import React from "react"
 import { Provider } from "react-redux"
 import { StyleSheet } from "react-native"
@@ -11,6 +10,7 @@ import ContributionSearch from "./redux/containers/Contribution/Search"
 import ContributionYoutube from "./redux/containers/Contribution/Youtube"
 import Facebook from "./redux/containers/Facebook/Login"
 import Login from "./redux/containers/Login/Page"
+import NewPage from "./redux/containers/New/Page"
 import createStore from "./redux/createStore"
 
 const store = createStore()
@@ -61,6 +61,7 @@ export default () => (
           component={ContributionYoutube}
         />
         <Scene key="Facebook" title="ログイン" component={Facebook} />
+        <Scene key="NewPage" title="登録" component={NewPage} />
       </Scene>
     </Router>
   </Provider>

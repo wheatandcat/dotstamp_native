@@ -33,40 +33,32 @@ type State = {
 }
 
 type Props = {
-  email: string,
-  setEmail: (email: string) => void,
-  changeEmail: (email: string) => void,
-  onLogin: (login: boolean) => void
+  email: string
 }
 
-const Redirect = async (setEmail, onLogin, changeEmail, event) => {
+const Redirect = async (setEmail, setLogin, event) => {
   await WebBrowser.dismissBrowser()
   const result = await queryString.parse(queryString.extract(event.url))
 
-  if (result.login) {
-    await onLogin(result.login)
-    return
-  }
-
+  await setLogin(result.login)
   await setEmail(result.email)
 }
 
-const Signin = async (setEmail, onLogin, changeEmail) => {
-  Linking.addEventListener("url", event =>
-    Redirect(setEmail, onLogin, changeEmail, event)
-  )
+const Signin = async (setEmail, setLogin) => {
+  Linking.addEventListener("url", event => Redirect(setEmail, setLogin, event))
   const result = await WebBrowser.openBrowserAsync(FacebookAuthURI)
 
   Linking.removeEventListener("url", event =>
-    Redirect(setEmail, onLogin, changeEmail, event)
+    Redirect(setEmail, setLogin, event)
   )
 }
 
 const enhance: HOC<State, Props> = compose(
   withState("email", "setEmail", ""),
+  withState("login", "setLogin", false),
   lifecycle({
     componentWillMount() {
-      Signin(this.props.setEmail, this.props.onLogin, this.props.changeEmail)
+      Signin(this.props.setEmail, this.props.setLogin)
     }
   })
 )

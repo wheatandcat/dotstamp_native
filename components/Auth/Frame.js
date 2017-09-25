@@ -16,14 +16,16 @@ import {
 import { Actions } from "react-native-router-flux"
 import Footer from "../Contribution/Footer"
 import type { Err } from "./type"
-import { Form } from "./"
+import { Login, Create } from "./"
 
 type Props = {
   email: string,
   password: string,
   error: Err,
+  login: boolean,
   changePassword: (password: string) => void,
-  onCrate: (email: string, password: string) => void
+  onCrate: (email: string, password: string) => void,
+  onLogin: (email: string, password: string) => void
 }
 
 const styles = StyleSheet.create({
@@ -32,7 +34,15 @@ const styles = StyleSheet.create({
   }
 })
 
-export default ({ email, password, error, changePassword, onCrate }: Props) => (
+export default ({
+  email,
+  password,
+  login,
+  error,
+  changePassword,
+  onLogin,
+  onCrate
+}: Props) => (
   <Container>
     <Header>
       <Left>
@@ -46,18 +56,34 @@ export default ({ email, password, error, changePassword, onCrate }: Props) => (
         </Button>
       </Left>
       <Body>
-        <Title>新規登録</Title>
+        <Title>{!login ? "新規登録" : "ログイン"}</Title>
       </Body>
       <Right />
     </Header>
     <Content style={styles.content} padder>
-      <Form
-        email={email}
-        password={password}
-        error={error}
-        changePassword={changePassword}
-        onCrate={onCrate}
-      />
+      {(() => {
+        if (!login) {
+          return (
+            <Create
+              email={email}
+              password={password}
+              error={error}
+              changePassword={changePassword}
+              onCrate={onCrate}
+            />
+          )
+        }
+
+        return (
+          <Login
+            email={email}
+            password={password}
+            error={error}
+            changePassword={changePassword}
+            onLogin={onLogin}
+          />
+        )
+      })()}
     </Content>
     <Footer selected="person" />
   </Container>

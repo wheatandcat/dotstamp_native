@@ -1,8 +1,22 @@
 // @flow
 import React from "react"
 import { Image, StyleSheet } from "react-native"
-import { Container, Content, H1, Text, View } from "native-base"
+import {
+  Container,
+  Content,
+  Header,
+  Body,
+  Title,
+  Left,
+  Right,
+  H1,
+  Text,
+  View,
+  Button,
+  Icon
+} from "native-base"
 import { Actions } from "react-native-router-flux"
+import Footer from "../Contribution/Footer"
 import Divider from "../Divider/"
 import type { Err } from "./type"
 import { Platform, Form } from "./"
@@ -13,7 +27,7 @@ type Props = {
   error: Err,
   changeEmail: (email: string) => void,
   changePassword: (password: string) => void,
-  onLogin: (email: string, password: string) => void
+  onCreate: (email: string, password: string) => void
 }
 
 const styles = StyleSheet.create({
@@ -55,16 +69,32 @@ export default ({
   error,
   changeEmail,
   changePassword,
-  onLogin
+  onCreate
 }: Props) => (
   <Container>
+    <Header>
+      <Left>
+        <Button
+          transparent
+          iconLeft
+          onPress={() => Actions["ユーザ"]({ order: 0 })}
+        >
+          <Icon name="arrow-back" />
+          <Text>Back</Text>
+        </Button>
+      </Left>
+      <Body>
+        <Title>{"新規登録"}</Title>
+      </Body>
+      <Right />
+    </Header>
     <Content style={styles.content} padder>
-      <H1 style={styles.title}>ログイン</H1>
+      <H1 style={styles.title}>新規登録</H1>
       <Divider />
       <Platform />
       <Divider />
-      <Text style={styles.new} onPress={() => Actions.NewPage()}>
-        メールアドレスを入力して登録する場合は、こちら
+      <Text style={styles.new} onPress={() => Actions["ユーザ"]({ order: 0 })}>
+        既にアカウントを持っている場合は、ログインから
       </Text>
 
       {(() => {
@@ -83,7 +113,7 @@ export default ({
         error={error}
         changeEmail={changeEmail}
         changePassword={changePassword}
-        onLogin={onLogin}
+        onCreate={onCreate}
       />
       <Divider />
       <Image
@@ -91,5 +121,6 @@ export default ({
         source={{ uri: "https://dotstamp.com/static/images/common/top.png" }}
       />
     </Content>
+    <Footer selected="person" />
   </Container>
 )

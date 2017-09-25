@@ -18,6 +18,7 @@ function loadStories() {
   require('../components/Divider/stories.js');
   require('../components/Login/stories.js');
   require('../components/MyPage/stories.js');
+  require('../components/New/stories.js');
   
 }
 

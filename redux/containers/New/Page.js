@@ -1,33 +1,29 @@
 // @flow
 import { connect } from "react-redux"
 import { Actions } from "react-native-router-flux"
-import Page from "../../../components/Facebook/Login"
-import { ChangePassword, ErrorData, type State } from "../../modules/User/New"
-import { Login } from "../../modules/Login/Authorization"
+import Page from "../../../components/New"
+import {
+  ChangeEmail,
+  ChangePassword,
+  Login,
+  ErrorData
+} from "../../modules/Login/Authorization"
+import type { State } from "../../modules/Login/Authorization"
 import { fetchPostsIfNeeded } from "../../../libs/fetch"
 
 const mapStateToProps = (state: State) => ({
-  password: state.UserNew.password,
+  email: state.Login.email,
+  password: state.Login.password,
+  login: state.Login.login,
   error: state.Login.error
 })
 
 const mapDispatchToProps = (dispatch: Function) => ({
+  changeEmail: (email: string) => {
+    dispatch(ChangeEmail(email))
+  },
   changePassword: (password: string) => {
     dispatch(ChangePassword(password))
-  },
-  onLogin: (email: string, password: string) => {
-    dispatch(
-      fetchPostsIfNeeded("login/check", {
-        email,
-        password
-      })
-    ).then(({ res }) => {
-      if (res.errCode === undefined) {
-        Actions["ユーザ"]()
-        return dispatch(Login(true))
-      }
-      return dispatch(ErrorData(res.message))
-    })
   },
   onCrate: (email: string, password: string) => {
     dispatch(
@@ -37,8 +33,9 @@ const mapDispatchToProps = (dispatch: Function) => ({
       })
     ).then(({ res }) => {
       if (res.errCode === undefined) {
-        Actions["ユーザ"]()
-        return dispatch(Login(true))
+        return dispatch(Login(true)).then(() => {
+          Actions["ユーザ"]()
+        })
       }
       return dispatch(ErrorData(res.message))
     })

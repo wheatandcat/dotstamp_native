@@ -24,13 +24,14 @@ export default class Page extends React.Component {
 
   render() {
     const { name, userList, followList, onLogout } = this.props
+    console.log(this.props)
 
     return (
       <Frame
         name={name}
         avatarURL="http://dotstamp.com/static/files/icon/1.jpg"
-        userList={userList}
-        followList={followList}
+        userList={userList ? userList : []}
+        followList={followList ? followList : []}
         onLogout={onLogout}
       />
     )

@@ -2,7 +2,7 @@ import React from "react"
 import { storiesOf } from "@storybook/react-native"
 import { Frame } from "./"
 
-storiesOf("MyPage", module).add("Frame", () =>
+storiesOf("MyPage", module).add("Frame", () => (
   <Frame
     name="foo"
     avatarURL="http://dotstamp.com/static/files/icon/1.jpg"
@@ -115,4 +115,4 @@ storiesOf("MyPage", module).add("Frame", () =>
       }
     ]}
   />
-)
+))

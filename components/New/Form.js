@@ -10,7 +10,7 @@ type Props = {
   error: Err,
   changeEmail: (email: string) => void,
   changePassword: (password: string) => void,
-  onLogin: (email: string, password: string) => void
+  onCreate: (email: string, password: string) => void
 }
 
 const styles = StyleSheet.create({
@@ -31,7 +31,7 @@ export default ({
   error,
   changeEmail,
   changePassword,
-  onLogin
+  onCreate
 }: Props) => (
   <Form>
     <Item floatingLabel error={error.message !== ""}>
@@ -43,8 +43,8 @@ export default ({
       <Input value={password} onChangeText={changePassword} secureTextEntry />
     </Item>
     <View style={styles.foget} />
-    <Button onPress={() => onLogin(email, password)} block success>
-      <Text>ログイン</Text>
+    <Button onPress={() => onCreate(email, password)} block success>
+      <Text>登録する</Text>
     </Button>
   </Form>
 )
