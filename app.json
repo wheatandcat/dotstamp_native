@@ -2,7 +2,16 @@
   "expo": {
     "name": "dotstamp",
     "slug": "dotstamp",
-    "sdkVersion": "20.0.0",
-    "privacy": "public"
+    "sdkVersion": "21.0.0",
+    "privacy": "public",
+    "version": "1.0.0",
+    "icon": "https://dotstamp.com/static/images/common/icon.png",
+    "loading": {
+      "icon": "https://dotstamp.com/static/images/common/icon.png",
+      "hideExponentText": false
+    },
+    "ios": {
+      "supportsTablet": true
+    }
   }
 }

@@ -20,10 +20,13 @@ import { Header as ShowHeader, List, Segment } from "./"
 import Footer from "../Footer"
 
 type Props = {
-  item: ItemDetail
+  item: ItemDetail,
+  login: ?boolean,
+  onFollow: (id: number) => void,
+  onRemoveFollow: (id: number) => void
 }
 
-export default ({ item }: Props) => (
+export default ({ item, login, onFollow, onRemoveFollow }: Props) => (
   <Container>
     <Header>
       <Left>
@@ -41,12 +44,16 @@ export default ({ item }: Props) => (
 
     <Content padder>
       <ShowHeader
+        id={item.id}
         name={item.user.name}
         avatarURL={iconURL(item.user.profileImageID)}
         title={item.title}
         createdAt={dateFormat(item.createdAt)}
         followCount={item.followCount}
         following={item.following}
+        login={login}
+        onFollow={onFollow}
+        onRemoveFollow={onRemoveFollow}
       />
       <List body={item.body} />
     </Content>

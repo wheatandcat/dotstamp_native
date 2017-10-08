@@ -23,21 +23,26 @@ type State = {
 
 export default class Frame extends React.Component<void, Props, State> {
   state = {
-    refreshing: true,
+    refreshing: false,
     height: 0,
     scrollHitHeight: 0,
     next: false
   }
+
   componentWillMount() {
     list = []
     this.setState({
-      refreshing: true,
+      refreshing: false,
       height: 0,
       scrollHitHeight: 0,
       next: this.props.page < this.props.maxPage
     })
   }
   componentWillReceiveProps() {
+    if (!this.state.refreshing) {
+      return
+    }
+
     if (list.length > 0) {
       if (this.props.list.length <= list.length) {
         return
@@ -99,9 +104,9 @@ export default class Frame extends React.Component<void, Props, State> {
           }}
         >
           <List style={{ backgroundColor: "rgb(255, 255, 255)" }}>
-            {this.props.list.map(item =>
+            {this.props.list.map(item => (
               <Page key={item.id} {...item} match="" />
-            )}
+            ))}
           </List>
           {(() => {
             if (this.state.next) {

@@ -1,9 +1,10 @@
 import React from "react"
 import { storiesOf } from "@storybook/react-native"
+import { action } from "@storybook/addon-actions"
 import { Frame, Header, List, Segment } from "./"
 
 storiesOf("Contribution/Show", module)
-  .add("Header", () =>
+  .add("Header with guest user", () => (
     <Header
       name="foo"
       avatarURL="http://dotstamp.com/static/files/icon/1.jpg"
@@ -11,10 +12,25 @@ storiesOf("Contribution/Show", module)
       createdAt="2017-01-01 10:00:00"
       followCount={1}
       following={false}
+      onFollow={action("onFollow")}
+      onRemoveFollow={action("onRemoveFollow")}
     />
-  )
+  ))
+  .add("Header with login user", () => (
+    <Header
+      name="foo"
+      avatarURL="http://dotstamp.com/static/files/icon/1.jpg"
+      title="fooとbarとfoobarの法則"
+      createdAt="2017-01-01 10:00:00"
+      followCount={1}
+      following={false}
+      login
+      onFollow={action("onFollow")}
+      onRemoveFollow={action("onRemoveFollow")}
+    />
+  ))
   .add("Segment", () => <Segment id={1} selected="list" />)
-  .add("List", () =>
+  .add("List", () => (
     <List
       body={[
         {
@@ -40,8 +56,8 @@ storiesOf("Contribution/Show", module)
         }
       ]}
     />
-  )
-  .add("Frame", () =>
+  ))
+  .add("Frame", () => (
     <Frame
       item={{
         id: 1,
@@ -85,5 +101,7 @@ storiesOf("Contribution/Show", module)
         createdAt: "2017-07-23T20:17:19+09:00",
         updatedAt: "2017-07-23T20:17:19+09:00"
       }}
+      onFollow={action("onFollow")}
+      onRemoveFollow={action("onRemoveFollow")}
     />
-  )
+  ))

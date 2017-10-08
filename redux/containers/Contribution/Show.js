@@ -2,17 +2,37 @@
 import { connect } from "react-redux"
 import Page from "../../../components/Contribution/Show"
 import { Contribution, type State } from "../../modules/Contribution/Show"
-import { fetchGetsIfNeeded } from "../../../libs/fetch"
+import {
+  fetchGetsIfNeeded,
+  fetchPostsIfNeeded,
+  fetchDeleteIfNeeded
+} from "../../../libs/fetch"
 
 const mapStateToProps = (state: State) => ({
-  item: state.ContributionShow.item
+  item: state.ContributionShow.item,
+  login: state.Login.login
 })
 
 const mapDispatchToProps = (dispatch: Function) => ({
-  onGet: (id: number) =>
+  onGet: (id: number) => {
     dispatch(fetchGetsIfNeeded(`contributions/${id}`)).then(({ res }) => {
       dispatch(Contribution(res))
     })
+  },
+  onFollow: (id: number) => {
+    dispatch(fetchPostsIfNeeded(`follows/${id}`)).then(() => {
+      dispatch(fetchGetsIfNeeded(`contributions/${id}`)).then(({ res }) => {
+        dispatch(Contribution(res))
+      })
+    })
+  },
+  onRemoveFollow: (id: number) => {
+    dispatch(fetchDeleteIfNeeded(`follows/${id}`)).then(() => {
+      dispatch(fetchGetsIfNeeded(`contributions/${id}`)).then(({ res }) =>
+        dispatch(Contribution(res))
+      )
+    })
+  }
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Page)

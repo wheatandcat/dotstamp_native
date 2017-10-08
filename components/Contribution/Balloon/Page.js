@@ -11,7 +11,7 @@ type Props = {
   iconURL: string
 }
 
-export default ({ label, iconURL, talkType }: Props) =>
+export default ({ label, iconURL, talkType }: Props) => (
   <CardItem>
     <Thumbnail square source={{ uri: iconURL }} />
     {(() => {
@@ -22,3 +22,4 @@ export default ({ label, iconURL, talkType }: Props) =>
       return <Text label={label} />
     })()}
   </CardItem>
+)

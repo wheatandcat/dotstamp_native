@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
   }
 })
 
-export default ({ imageURL }: Props) =>
+export default ({ imageURL }: Props) => (
   <View style={styles.balloon}>
     <Thumbnail
       square
@@ -39,3 +39,4 @@ export default ({ imageURL }: Props) =>
       style={styles.thumbnail}
     />
   </View>
+)

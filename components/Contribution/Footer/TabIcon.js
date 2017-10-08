@@ -33,7 +33,8 @@ const styles = StyleSheet.create({
   }
 })
 
-export default ({ iconName, focused }: Props) =>
+export default ({ iconName, focused }: Props) => (
   <View style={focused ? styles.backgroundActive : styles.background}>
     <Icon active={focused} name={iconName} style={{ fontSize: 25 }} />
   </View>
+)

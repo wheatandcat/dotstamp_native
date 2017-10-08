@@ -3,7 +3,7 @@ import { storiesOf } from "@storybook/react-native"
 import { action } from "@storybook/addon-actions"
 import { Frame } from "./"
 
-storiesOf("Contribution/List", module).add("Frame", () =>
+storiesOf("Contribution/List", module).add("Frame", () => (
   <Frame
     list={[
       {
@@ -245,4 +245,4 @@ storiesOf("Contribution/List", module).add("Frame", () =>
     page={0}
     maxPage={2}
   />
-)
+))

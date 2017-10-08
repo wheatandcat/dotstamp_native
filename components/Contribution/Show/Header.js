@@ -14,12 +14,16 @@ import {
 } from "native-base"
 
 type Props = {
+  id: number,
   name: string,
   avatarURL: string,
   title: string,
   createdAt: string,
   followCount: number,
-  following: boolean
+  following: boolean,
+  login: ?boolean,
+  onFollow: (id: number) => void,
+  onRemoveFollow: (id: number) => void
 }
 
 const styles = StyleSheet.create({
@@ -43,12 +47,16 @@ const styles = StyleSheet.create({
 })
 
 export default ({
+  id,
   name,
+  login,
   avatarURL,
   title,
   createdAt,
   followCount,
-  following
+  following,
+  onFollow,
+  onRemoveFollow
 }: Props) => (
   <Card>
     <CardItem style={styles.user}>
@@ -66,16 +74,24 @@ export default ({
     <CardItem style={styles.menu}>
       <Left>
         {(() => {
-          if (following) {
+          if (!login) {
             return (
-              <Button small success>
+              <Button small disabled>
+                <Text>フォローする</Text>
+              </Button>
+            )
+          }
+
+          if (!following) {
+            return (
+              <Button small success onPress={() => onFollow(id)}>
                 <Text>フォローする</Text>
               </Button>
             )
           }
 
           return (
-            <Button small success>
+            <Button small success onPress={() => onRemoveFollow(id)}>
               <Text>フォロー済み</Text>
             </Button>
           )

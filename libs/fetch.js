@@ -124,3 +124,42 @@ export function fetchPostsIfNeeded(url: string, paramas: Object = {}): Object {
     return Promise.resolve()
   }
 }
+
+/**
+ * [DELETE]responseを取得する
+ */
+function fetchDelete(url: string, paramas: Object) {
+  const requestParams = {
+    method: "DELETE",
+    credentials: "same-origin",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(paramas)
+  }
+
+  return dispatch =>
+    fetch(host + url, requestParams)
+      .then(response =>
+        response.json().then(json => ({
+          status: response.status,
+          json
+        }))
+      )
+      .then(({ json }) => dispatch(receiveResponse("DELETE", url, json)))
+      .catch(({ json }) => dispatch(receiveErrorResponse(url, json)))
+}
+
+/**
+ * [DELETE]通信する
+ */
+export function fetchDeleteIfNeeded(url: string, paramas: Object = {}): Object {
+  return dispatch => {
+    if (shouldFetch(url)) {
+      return dispatch(fetchDelete(url, paramas))
+    }
+
+    return Promise.resolve()
+  }
+}

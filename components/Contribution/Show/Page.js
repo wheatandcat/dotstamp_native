@@ -6,7 +6,10 @@ import { Frame } from "./"
 type Props = {
   id: number,
   item: ItemDetail,
-  onGet: (order: number) => void
+  login: ?boolean,
+  onGet: (order: number) => void,
+  onFollow: (id: number) => void,
+  onRemoveFollow: (id: number) => void
 }
 
 export default class Show extends React.Component {
@@ -16,6 +19,13 @@ export default class Show extends React.Component {
   props: Props
 
   render() {
-    return <Frame item={this.props.item} />
+    return (
+      <Frame
+        item={this.props.item}
+        login={this.props.login}
+        onFollow={this.props.onFollow}
+        onRemoveFollow={this.props.onRemoveFollow}
+      />
+    )
   }
 }

@@ -1,6 +1,8 @@
 // @flow
 import React from "react"
+import { iconURL } from "../../libs/image"
 import { Frame } from "./"
+
 /* eslint-disable */
 type Props = {
   name: string,
@@ -23,13 +25,12 @@ export default class Page extends React.Component {
   props: Props
 
   render() {
-    const { name, userList, followList, onLogout } = this.props
-    console.log(this.props)
+    const { name, imageID, userList, followList, onLogout } = this.props
 
     return (
       <Frame
         name={name}
-        avatarURL="http://dotstamp.com/static/files/icon/1.jpg"
+        avatarURL={iconURL(imageID)}
         userList={userList ? userList : []}
         followList={followList ? followList : []}
         onLogout={onLogout}

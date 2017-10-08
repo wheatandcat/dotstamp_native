@@ -22,7 +22,4 @@ const styles = StyleSheet.create({
   }
 })
 
-export default ({ label }: Props) =>
-  <Text style={styles.balloon}>
-    {label}
-  </Text>
+export default ({ label }: Props) => <Text style={styles.balloon}>{label}</Text>
