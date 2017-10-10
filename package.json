@@ -39,19 +39,22 @@
     "test": "node node_modules/jest/bin/jest.js",
     "testWatch": "node node_modules/jest/bin/jest.js --watch",
     "storybook": "storybook start -p 7007",
-    "prestorybook":
-      "rnstl --searchDir ./components --pattern '**/stories.js' --outputFile ./storybook/storyLoader.js"
+    "prestorybook": "rnstl --searchDir ./components --pattern '**/stories.js' --outputFile ./storybook/storyLoader.js"
   },
   "config": {
     "react-native-storybook-loader": {
-      "searchDir": ["./components"],
+      "searchDir": [
+        "./components"
+      ],
       "pattern": "**/stories.js",
       "outputFile": "./storybook/storyLoader.js"
     }
   },
   "jest": {
     "preset": "jest-expo",
-    "transformIgnorePatterns": ["/node_modules/(?!native-base)/"]
+    "transformIgnorePatterns": [
+      "/node_modules/(?!native-base)/"
+    ]
   },
   "dependencies": {
     "@expo/vector-icons": "^5.1.0",
@@ -60,7 +63,7 @@
     "dateformat": "^2.0.0",
     "expo": "^21.0.2",
     "isomorphic-fetch": "^2.2.1",
-    "native-base": "^2.3.1",
+    "native-base": "^2.3.2",
     "prop-types": "^15.5.10",
     "qs": "^6.5.1",
     "query-string": "^5.0.0",
