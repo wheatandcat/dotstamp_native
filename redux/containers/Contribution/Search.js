@@ -2,10 +2,9 @@
 import { connect } from "react-redux"
 import Page from "../../../components/Contribution/Search"
 import { ChangeSearch, Items } from "../../modules/Contribution/Search"
-import type { State } from "../../modules/Contribution/Search"
 import { fetchPostsIfNeeded } from "../../../libs/fetch"
 
-const mapStateToProps = (state: State) => ({
+const mapStateToProps = (state: any) => ({
   list: state.ContributionSearch.list,
   search: state.ContributionSearch.search
 })

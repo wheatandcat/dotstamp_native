@@ -21,9 +21,6 @@ const styles = StyleSheet.create({
   },
   emailText: {
     color: "#F08080"
-  },
-  button: {
-    top: 30
   }
 })
 
@@ -40,12 +37,7 @@ export default ({ email, password, error, changePassword, onCrate }: Props) => (
       <Label>パスワード</Label>
       <Input value={password} onChangeText={changePassword} secureTextEntry />
     </Item>
-    <Button
-      onPress={() => onCrate(email, password)}
-      block
-      success
-      style={styles.button}
-    >
+    <Button onPress={() => onCrate(email, password)} block success>
       <Text>登録する</Text>
     </Button>
   </Form>

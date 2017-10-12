@@ -29,6 +29,10 @@
 
 ; Ignore react-native-fbads dependency of the expo sdk
 .*/node_modules/react-native-fbads/*
+.*/node_modules/react-navigation/*
+.*/node_modules/react-native-router-flux/src/*
+.*/node_modules/eslint-plugin-jsx-a11y/src/*
+.*/node_modules/findup/test/fixture/*
 
 [include]
 

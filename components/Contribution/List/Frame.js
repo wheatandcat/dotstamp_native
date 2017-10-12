@@ -84,7 +84,7 @@ export default class Frame extends React.Component<void, Props, State> {
     })
     this.props.paging(this.props.page + 1)
   }
-  sizeChange(ctwidth, ctheight) {
+  sizeChange(ctwidth: number, ctheight: number) {
     const height = this.state.height
     this.setState({ scrollHitHeight: ctheight - height })
   }

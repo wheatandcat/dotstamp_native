@@ -1,6 +1,6 @@
 // @flow
 export type User = {
-  id: number,
+  id?: number,
   name: string,
   profileImageID: number
 }
@@ -11,9 +11,9 @@ export type Tag = {
 }
 
 export type Movie = {
-  movie_type: number,
+  movie_type?: number,
   movie_id: string,
-  movie_status: number
+  movie_status?: number
 }
 
 export type Body = {
@@ -44,6 +44,8 @@ export type Item = {
 
 export type ItemDetail = {
   ...Item,
+  user: User,
+  movie: Movie,
   following: boolean,
   soundFile: boolean
 }

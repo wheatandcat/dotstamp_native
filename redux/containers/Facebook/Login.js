@@ -2,11 +2,11 @@
 import { connect } from "react-redux"
 import { Actions } from "react-native-router-flux"
 import Page from "../../../components/Facebook/Login"
-import { ChangePassword, ErrorData, type State } from "../../modules/User/New"
+import { ChangePassword, ErrorData } from "../../modules/User/New"
 import { Login } from "../../modules/Login/Authorization"
 import { fetchPostsIfNeeded, fetchGetsIfNeeded } from "../../../libs/fetch"
 
-const mapStateToProps = (state: State) => ({
+const mapStateToProps = (state: any) => ({
   password: state.UserNew.password,
   error: state.Login.error
 })

@@ -3,7 +3,7 @@ import React from "react"
 import { StyleSheet, View } from "react-native"
 
 type Props = {
-  children?: Children,
+  children?: Node,
 }
 
 const styles = StyleSheet.create({

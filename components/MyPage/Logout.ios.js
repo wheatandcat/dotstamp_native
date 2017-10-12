@@ -9,8 +9,9 @@ type Props = {
 const BUTTONS = ["ログアウト", "キャンセル"]
 
 export default class Logout extends Component {
-  constructor(props) {
+  constructor(props: any) {
     super(props)
+    // $FlowFixMe
     this.actionSheet = null
   }
 
@@ -21,6 +22,7 @@ export default class Logout extends Component {
 
     if (this.actionSheet !== null) {
       /* eslint-disable no-underscore-dangle */
+      // $FlowFixMe
       this.actionSheet._root.showActionSheet(
         {
           options: BUTTONS
@@ -41,6 +43,7 @@ export default class Logout extends Component {
         </Button>
         <ActionSheet
           ref={c => {
+            // $FlowFixMe
             this.actionSheet = c
           }}
         />

@@ -20,7 +20,7 @@ type Props = {
   onSearch: (text: string) => void
 }
 
-export default ({ list, search, changeSearch, onSearch }: Props) =>
+export default ({ list, search, changeSearch, onSearch }: Props) => (
   <Container>
     <Header searchBar rounded>
       <Item>
@@ -43,11 +43,12 @@ export default ({ list, search, changeSearch, onSearch }: Props) =>
 
         return (
           <List style={{ backgroundColor: "rgb(255, 255, 255)" }}>
-            {list.map(item =>
+            {list.map((item: ItemType) => (
               <Page key={item.title} {...item} match={search} />
-            )}
+            ))}
           </List>
         )
       })()}
     </Content>
   </Container>
+)

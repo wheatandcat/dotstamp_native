@@ -1,18 +1,18 @@
 // @flow
 import React from "react"
+import type { Item } from "../Contribution/type"
 import { iconURL } from "../../libs/image"
 import { Frame } from "./"
 
-/* eslint-disable */
 type Props = {
   name: string,
   imageID: number,
   userList: Array<Item>,
   followList: Array<Item>,
   onGet: () => void,
-  onUserList: (order: number, page: numbetr, limit: number) => void,
-  onFollowList: (order: number, page: numbetr, limit: number) => void,
-  onLogout: () => void,
+  onUserList: (order: number, page: number, limit: number) => void,
+  onFollowList: (order: number, page: number, limit: number) => void,
+  onLogout: () => void
 }
 
 export default class Page extends React.Component {
@@ -30,9 +30,9 @@ export default class Page extends React.Component {
     return (
       <Frame
         name={name}
-        avatarURL={iconURL(imageID)}
-        userList={userList ? userList : []}
-        followList={followList ? followList : []}
+        avatarURL={iconURL(String(imageID))}
+        userList={userList || []}
+        followList={followList || []}
         onLogout={onLogout}
       />
     )

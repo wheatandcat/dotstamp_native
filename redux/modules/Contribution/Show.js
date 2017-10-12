@@ -42,7 +42,9 @@ const initialState: State = {
     followCount: 0,
     following: false,
     soundFile: false,
-    movie: {}
+    movie: {
+      movie_id: ""
+    }
   },
   counter: 0
 }

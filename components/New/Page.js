@@ -11,7 +11,7 @@ type Props = {
   error: Err,
   changeEmail: (email: string) => void,
   changePassword: (password: string) => void,
-  onLogin: (email: string, password: string) => void
+  onCrate: (email: string, password: string) => void
 }
 
 export default ({
@@ -21,7 +21,7 @@ export default ({
   error,
   changeEmail,
   changePassword,
-  onLogin
+  onCrate
 }: Props) =>
   !login ? (
     <Frame
@@ -30,7 +30,7 @@ export default ({
       error={error}
       changeEmail={changeEmail}
       changePassword={changePassword}
-      onLogin={onLogin}
+      onCreate={onCrate}
     />
   ) : (
     <User />

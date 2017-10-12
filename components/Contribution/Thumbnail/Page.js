@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
 })
 
 export default ({ id, user, title, tags, createdAt, search, match }: Props) => (
-  <ListItem style={styles.root}>
+  <ListItem>
     <Body style={match !== "" ? { height: 110 } : { height: 70 }}>
       <Grid>
         <Row style={styles.heder}>

@@ -20,7 +20,7 @@ const mapDispatchToProps = (dispatch: Function) => ({
       dispatch(User(res.user.name, res.user.profileImageID))
     })
   },
-  onUserList: (order: number, page: numbetr, limit: number) => {
+  onUserList: (order: number, page: number, limit: number) => {
     dispatch(
       fetchPostsIfNeeded("users/contribution/list", {
         order,
@@ -31,7 +31,7 @@ const mapDispatchToProps = (dispatch: Function) => ({
       dispatch(UserItems(res.list, res.count))
     })
   },
-  onFollowList: (order: number, page: numbetr, limit: number) => {
+  onFollowList: (order: number, page: number, limit: number) => {
     dispatch(
       fetchPostsIfNeeded("follows/list", {
         order,

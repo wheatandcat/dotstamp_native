@@ -18,6 +18,7 @@ const middlewares = [thunk]
 
 const localStorage = compose(filter(["Login"]))(adapter(AsyncStorage))
 
+// $FlowFixMe
 export default initialState => {
   const rootReducer = combineReducers({
     // every modules reducer should be define here

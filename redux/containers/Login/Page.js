@@ -7,10 +7,9 @@ import {
   Login,
   ErrorData
 } from "../../modules/Login/Authorization"
-import type { State } from "../../modules/Login/Authorization"
 import { fetchPostsIfNeeded } from "../../../libs/fetch"
 
-const mapStateToProps = (state: State) => ({
+const mapStateToProps = (state: any) => ({
   email: state.Login.email,
   password: state.Login.password,
   login: state.Login.login,

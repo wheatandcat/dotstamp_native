@@ -8,6 +8,7 @@ describe("edux/modules/Contribution/List", () => {
         [
           {
             id: 1,
+            body: [],
             user: {
               id: 1,
               name: "foo",
@@ -72,7 +73,15 @@ describe("edux/modules/Contribution/List", () => {
       })
 
       it("reducer", () => {
-        expect(reducer([], action)).toEqual({
+        expect(
+          reducer(
+            {
+              page: 0,
+              list: []
+            },
+            action
+          )
+        ).toEqual({
           list: [
             {
               id: 1,

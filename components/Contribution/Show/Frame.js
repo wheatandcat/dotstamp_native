@@ -46,9 +46,9 @@ export default ({ item, login, onFollow, onRemoveFollow }: Props) => (
       <ShowHeader
         id={item.id}
         name={item.user.name}
-        avatarURL={iconURL(item.user.profileImageID)}
+        avatarURL={iconURL(String(item.user.profileImageID))}
         title={item.title}
-        createdAt={dateFormat(item.createdAt)}
+        createdAt={dateFormat(String(item.createdAt))}
         followCount={item.followCount}
         following={item.following}
         login={login}

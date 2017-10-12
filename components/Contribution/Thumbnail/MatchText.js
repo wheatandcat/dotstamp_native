@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
   }
 })
 
-function replaceMatch(str: string, replace: string): React$Element {
+function replaceMatch(str: any, replace: any) {
   const regex = new RegExp(`${replace}(.*?)`, "g")
 
   const tmp = str.replace(/\r?\n/g, "")
@@ -56,7 +56,6 @@ function getMatchString(
   return replaceMatch(`${str.substring(start, end)}...`, replace)
 }
 
-export default ({ text, match }: Props) =>
-  <Text style={styles.text}>
-    {getMatchString(text, match, 20)}
-  </Text>
+export default ({ text, match }: Props) => (
+  <Text style={styles.text}>{getMatchString(text, match, 20)}</Text>
+)

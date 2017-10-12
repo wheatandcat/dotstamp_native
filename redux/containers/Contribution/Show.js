@@ -1,14 +1,14 @@
 // @flow
 import { connect } from "react-redux"
 import Page from "../../../components/Contribution/Show"
-import { Contribution, type State } from "../../modules/Contribution/Show"
+import { Contribution } from "../../modules/Contribution/Show"
 import {
   fetchGetsIfNeeded,
   fetchPostsIfNeeded,
   fetchDeleteIfNeeded
 } from "../../../libs/fetch"
 
-const mapStateToProps = (state: State) => ({
+const mapStateToProps = (state: any) => ({
   item: state.ContributionShow.item,
   login: state.Login.login
 })
