@@ -29,6 +29,7 @@ export default ({ name, avatarURL, userList, followList, onLogout }: Props) => (
     <Container>
       <Content padder>
         <User name={name} avatarURL={avatarURL} onLogout={onLogout} />
+
         <Divider />
         <Tabs>
           <Tab

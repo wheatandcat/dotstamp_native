@@ -12,7 +12,7 @@ function lable(tags: Array<Tag>): string {
   return tags.map(item => item.name).join(", ")
 }
 
-export default ({ tags }: Props) =>
+export default ({ tags }: Props) => (
   <View style={{ flexDirection: "row" }}>
     <Icon
       name="ios-pricetag"
@@ -27,3 +27,4 @@ export default ({ tags }: Props) =>
       {lable(tags)}
     </Text>
   </View>
+)

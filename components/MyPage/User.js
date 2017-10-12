@@ -1,9 +1,9 @@
 // @flow
 import React from "react"
-import { StyleSheet } from "react-native"
+import { StyleSheet, Platform } from "react-native"
 import { Card, CardItem, Thumbnail, Left, Body, H3 } from "native-base"
 import Divider from "../Divider"
-import { Logout } from "./"
+import { LogoutIos, LogoutAndroid } from "./"
 
 type Props = {
   name: string,
@@ -22,6 +22,8 @@ const styles = StyleSheet.create({
     right: 50
   }
 })
+
+const Logout = Platform.OS === "android" ? LogoutAndroid : LogoutIos
 
 export default ({ name, avatarURL, onLogout }: Props) => (
   <Card>
