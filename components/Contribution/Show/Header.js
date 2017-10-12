@@ -38,11 +38,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 20,
-    fontWeight: "bold",
-    flex: 1,
-    alignItems: "center",
-    textAlign: "left",
-    left: 20
+    fontWeight: "bold"
   }
 })
 
@@ -68,8 +64,10 @@ export default ({
         </Body>
       </Left>
     </CardItem>
-    <CardItem cardBody style={styles.body}>
-      <Text style={styles.title}>{title}</Text>
+    <CardItem style={styles.body}>
+      <Body>
+        <Text style={styles.title}>{title}</Text>
+      </Body>
     </CardItem>
     <CardItem style={styles.menu}>
       <Left>
