@@ -1,22 +1,8 @@
 // @flow
 import React from "react"
 import { Image, StyleSheet } from "react-native"
-import {
-  Container,
-  Content,
-  Header,
-  Body,
-  Title,
-  Left,
-  Right,
-  H1,
-  Text,
-  View,
-  Button,
-  Icon
-} from "native-base"
+import { Container, Content, H1, Text, View, Button, Icon } from "native-base"
 import { Actions } from "react-native-router-flux"
-import Footer from "../Contribution/Footer"
 import Divider from "../Divider/"
 import type { Err } from "./type"
 import { Platform, Form } from "./"
@@ -72,22 +58,10 @@ export default ({
   onCreate
 }: Props) => (
   <Container>
-    <Header>
-      <Left>
-        <Button
-          transparent
-          iconLeft
-          onPress={() => Actions["ユーザ"]({ order: 0 })}
-        >
-          <Icon name="arrow-back" />
-          <Text>Back</Text>
-        </Button>
-      </Left>
-      <Body>
-        <Title>{"新規登録"}</Title>
-      </Body>
-      <Right />
-    </Header>
+    <Button transparent iconLeft onPress={() => Actions["ユーザ"]({ order: 0 })}>
+      <Icon name="arrow-back" />
+      <Text>Back</Text>
+    </Button>
     <Content style={styles.content} padder>
       <H1 style={styles.title}>新規登録</H1>
       <Divider />
@@ -121,6 +95,5 @@ export default ({
         source={{ uri: "https://dotstamp.com/static/images/common/top.png" }}
       />
     </Content>
-    <Footer selected="person" />
   </Container>
 )

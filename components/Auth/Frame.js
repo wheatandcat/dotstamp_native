@@ -1,20 +1,8 @@
 // @flow
 import React from "react"
 import { StyleSheet } from "react-native"
-import {
-  Container,
-  Content,
-  Header,
-  Body,
-  Title,
-  Left,
-  Right,
-  Button,
-  Text,
-  Icon
-} from "native-base"
+import { Container, Content, Button, Text, Icon } from "native-base"
 import { Actions } from "react-native-router-flux"
-import Footer from "../Contribution/Footer"
 import type { Err } from "./type"
 import { Login, Create } from "./"
 
@@ -44,22 +32,10 @@ export default ({
   onCrate
 }: Props) => (
   <Container>
-    <Header>
-      <Left>
-        <Button
-          transparent
-          iconLeft
-          onPress={() => Actions["ユーザ"]({ order: 0 })}
-        >
-          <Icon name="arrow-back" />
-          <Text>Back</Text>
-        </Button>
-      </Left>
-      <Body>
-        <Title>{!login ? "新規登録" : "ログイン"}</Title>
-      </Body>
-      <Right />
-    </Header>
+    <Button transparent iconLeft onPress={() => Actions["ユーザ"]({ order: 0 })}>
+      <Icon name="arrow-back" />
+      <Text>Back</Text>
+    </Button>
     <Content style={styles.content} padder>
       {(() => {
         if (!login) {
@@ -85,6 +61,5 @@ export default ({
         )
       })()}
     </Content>
-    <Footer selected="person" />
   </Container>
 )

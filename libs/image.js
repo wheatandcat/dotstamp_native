@@ -4,7 +4,7 @@ const host = "http://dotstamp.com/static/"
 function imageURL(file: string): string {
   return host + file
 }
-export function iconURL(fileName: string): string {
+export function iconURL(fileName: string | number): string {
   if (fileName === 0) {
     return imageURL("images//profile/default.png")
   }

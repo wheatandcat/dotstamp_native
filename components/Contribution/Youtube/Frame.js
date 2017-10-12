@@ -23,18 +23,16 @@ type Props = {
 export default ({ item }: Props) => (
   <Container>
     <Header>
-      <Left>
-        <Button transparent iconLeft onPress={() => Actions.pop()}>
-          <Icon name="arrow-back" />
-          <Text>Back</Text>
-        </Button>
-      </Left>
+      <Left />
       <Body>
         <Title> Youtube</Title>
       </Body>
       <Right />
     </Header>
-
+    <Button transparent iconLeft onPress={() => Actions.pop()}>
+      <Icon name="arrow-back" />
+      <Text>Back</Text>
+    </Button>
     <Segment id={item.id} selected="youtube" />
     <Movie videoID={item.movie.movie_id} />
   </Container>

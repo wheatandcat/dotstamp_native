@@ -30,7 +30,7 @@ export default class Page extends React.Component {
     return (
       <Frame
         name={name}
-        avatarURL={iconURL(String(imageID))}
+        avatarURL={iconURL(imageID)}
         userList={userList || []}
         followList={followList || []}
         onLogout={onLogout}
