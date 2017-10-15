@@ -2,16 +2,21 @@
   "expo": {
     "name": "dotstamp",
     "slug": "dotstamp",
+    "scheme": "dotstamp",
     "sdkVersion": "21.0.0",
     "privacy": "public",
     "version": "1.0.0",
-    "icon": "https://dotstamp.com/static/images/common/icon.png",
+    "icon": "https://dotstamp.com/static/images/native/icon.png",
     "loading": {
-      "icon": "https://dotstamp.com/static/images/common/icon.png",
+      "icon": "https://dotstamp.com/static/images/native/icon.png",
       "hideExponentText": false
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "dotstamp.com"
+    },
+    "android": {
+      "package": "dotstamp.com"
     }
   }
 }
