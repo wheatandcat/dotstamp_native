@@ -12,3 +12,5 @@ Try it at https://expo.io/@wheatandcat/dotstamp
 ### about
 
 It is an application version of https://dotstamp.com
+
+[dotstamp://](dotstamp://)

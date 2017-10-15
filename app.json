@@ -5,7 +5,7 @@
     "scheme": "dotstamp",
     "sdkVersion": "21.0.0",
     "privacy": "public",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "icon": "https://dotstamp.com/static/images/native/icon.png",
     "loading": {
       "icon": "https://dotstamp.com/static/images/native/icon.png",
