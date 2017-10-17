@@ -16,7 +16,7 @@ import { reducer as Login } from "./modules/Login/Authorization"
 
 const middlewares = [thunk]
 
-const localStorage = compose(filter(["Login"]))(adapter(AsyncStorage))
+const storage = compose(filter(["Login"]))(adapter(AsyncStorage))
 
 // $FlowFixMe
 export default initialState => {
@@ -34,7 +34,7 @@ export default initialState => {
 
   const enhancer = compose(
     applyMiddleware(...middlewares),
-    persistState(localStorage, "auth")
+    persistState(storage, "auth")
   )
 
   return createStore(rootReducer, initialState, enhancer)

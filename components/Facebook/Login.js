@@ -1,5 +1,5 @@
 // @flow
-import { WebBrowser } from "expo"
+import { Constants, WebBrowser } from "expo"
 import { Linking, StyleSheet } from "react-native"
 import { compose, withState, lifecycle, type HOC } from "recompose"
 import queryString from "query-string"
@@ -9,7 +9,10 @@ const AppID = "1696288387368219"
 
 /* eslint-disable no-unused-vars,no-undef */
 // const RedirectURI = "https://dotstamp.com/static/html/dev_auth.html"
-const RedirectURI = "https://dotstamp.com/static/html/auth.html"
+const RedirectURI =
+  Constants.appOwnership !== "expo"
+    ? "https://dotstamp.com/static/html/auth.html"
+    : "https://dotstamp.com/static/html/dev_auth.html"
 
 const FacebookAuthURI = `https://www.facebook.com/v2.8/dialog/oauth?response_type=token&client_id=${AppID}&redirect_uri=${RedirectURI}`
 

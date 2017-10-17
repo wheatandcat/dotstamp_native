@@ -35,6 +35,11 @@ const mapDispatchToProps = (dispatch: Function) => ({
       }
       return dispatch(ErrorData(res.message))
     })
+  },
+  onAuth: () => {
+    dispatch(fetchPostsIfNeeded("login/auth", {})).then(({ res }) =>
+      dispatch(Login(res.login))
+    )
   }
 })
 

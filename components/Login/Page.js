@@ -1,5 +1,6 @@
 // @flow
 import React from "react"
+import { compose, lifecycle, type HOC } from "recompose"
 import User from "../../redux/containers/User/Page"
 import type { Err } from "./type"
 import { Frame } from "./"
@@ -14,7 +15,9 @@ type Props = {
   onLogin: (email: string, password: string) => void
 }
 
-export default ({
+type State = {}
+
+const baseComponent = ({
   email,
   password,
   login,
@@ -35,3 +38,14 @@ export default ({
   ) : (
     <User />
   )
+
+const enhance: HOC<State, Props> = compose(
+  lifecycle({
+    componentWillMount() {
+      this.props.onAuth()
+    }
+  })
+)
+
+const EnhancedComponent = enhance(baseComponent)
+export default EnhancedComponent
