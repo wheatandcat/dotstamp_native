@@ -8,6 +8,7 @@ import filter from "redux-localstorage-filter"
 import { reducer as ContributionList } from "./modules/Contribution/List"
 import { reducer as ContributionShow } from "./modules/Contribution/Show"
 import { reducer as ContributionSearch } from "./modules/Contribution/Search"
+import { reducer as ContributionProblem } from "./modules/Contribution/Problem"
 import { reducer as User } from "./modules/User/User"
 import { reducer as UserNew } from "./modules/User/New"
 import { reducer as UserContribution } from "./modules/User/Contribution"
@@ -25,6 +26,7 @@ export default initialState => {
     ContributionList,
     ContributionShow,
     ContributionSearch,
+    ContributionProblem,
     Login,
     User,
     UserNew,

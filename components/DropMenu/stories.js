@@ -1,7 +1,7 @@
 import React from "react"
 import { storiesOf } from "@storybook/react-native"
 import { action } from "@storybook/addon-actions"
-import { DropMenuIos, DropMenuAndroid } from "./"
+import DropMenu, { DropMenuIos, DropMenuAndroid } from "./"
 
 storiesOf("DropMenu", module)
   .add("DropMenuIos", () => (
@@ -47,6 +47,19 @@ storiesOf("DropMenu", module)
       buttonLable=""
       buttonOption={{
         transparent: true
+      }}
+      label="foo"
+      onClick={action("onClick")}
+    />
+  ))
+  .add("DropMenu", () => (
+    <DropMenu
+      buttonIcon="log-out"
+      buttonLable="foo"
+      buttonOption={{
+        iconLeft: true,
+        danger: true,
+        small: true
       }}
       label="foo"
       onClick={action("onClick")}

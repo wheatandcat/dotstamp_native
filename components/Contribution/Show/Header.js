@@ -1,6 +1,7 @@
 // @flow
 import React from "react"
 import { StyleSheet } from "react-native"
+import { Actions } from "react-native-router-flux"
 import {
   Card,
   CardItem,
@@ -12,6 +13,7 @@ import {
   Body,
   Right
 } from "native-base"
+import DropMenu from "../../DropMenu/DropMenu"
 
 type Props = {
   id: number,
@@ -63,9 +65,15 @@ export default ({
           <Text note>{createdAt}に投稿しました</Text>
         </Body>
         <Right>
-          <Button transparent>
-            <Icon active name="list" />
-          </Button>
+          <DropMenu
+            buttonIcon="list"
+            buttonLable=""
+            buttonOption={{
+              transparent: true
+            }}
+            label="この記事を通報する"
+            onClick={Actions.ContributionProblem}
+          />
         </Right>
       </Left>
     </CardItem>

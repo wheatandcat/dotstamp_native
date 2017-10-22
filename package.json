@@ -74,6 +74,7 @@
     "react-native-easy-grid": "^0.1.15",
     "react-native-modalbox": "^1.4.2",
     "react-native-router-flux": "^4.0.0-beta.11",
+    "react-native-simple-radio-button": "^2.7.0",
     "react-redux": "^5.0.5",
     "recompose": "^0.25.0",
     "redux": "^3.7.2",

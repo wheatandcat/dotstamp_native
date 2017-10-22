@@ -7509,6 +7509,10 @@ react-native-scripts@1.2.1:
     rimraf "^2.6.1"
     xdl "44.0.0"
 
+react-native-simple-radio-button@^2.7.0:
+  version "2.7.0"
+  resolved "https://registry.yarnpkg.com/react-native-simple-radio-button/-/react-native-simple-radio-button-2.7.0.tgz#0ad7e9beda7650519ca7ae479ee94cf7facd7d4e"
+
 react-native-storybook-loader@^1.5.1:
   version "1.5.1"
   resolved "https://registry.yarnpkg.com/react-native-storybook-loader/-/react-native-storybook-loader-1.5.1.tgz#4d02167db71a034ce81962c87a1b7abb6e66b2b3"

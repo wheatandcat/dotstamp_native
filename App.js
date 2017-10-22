@@ -6,5 +6,5 @@ import App from "./Apply"
 
 // module.exports = MODE_ENV === "storybook" && __DEV__ ? StorybookUI : App
 
-// module.exports = App
-module.exports = StorybookUI
+module.exports = App
+// module.exports = StorybookUI

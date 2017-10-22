@@ -8,6 +8,7 @@ import ContributionList from "./redux/containers/Contribution/List"
 import ContributionShow from "./redux/containers/Contribution/Show"
 import ContributionSearch from "./redux/containers/Contribution/Search"
 import ContributionYoutube from "./redux/containers/Contribution/Youtube"
+import ContributionProblem from "./redux/containers/Contribution/Problem"
 import Facebook from "./redux/containers/Facebook/Login"
 import Login from "./redux/containers/Login/Page"
 import NewPage from "./redux/containers/New/Page"
@@ -88,6 +89,12 @@ export default () => (
           key="ContributionYoutube"
           title="Youtube"
           component={ContributionYoutube}
+        />
+
+        <Scene
+          key="ContributionProblem"
+          title=""
+          component={ContributionProblem}
         />
 
         <Scene
