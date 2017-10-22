@@ -5,6 +5,7 @@ import { Body, Text, Thumbnail, ListItem } from "native-base"
 import { Col, Row, Grid } from "react-native-easy-grid"
 import { Actions } from "react-native-router-flux"
 import { dateFormat } from "../../../libs/date"
+import { iconURL } from "../../../libs/image"
 import type { Item } from "./../type"
 import Tags from "../Tag/"
 import { MatchText } from "./"
@@ -23,6 +24,13 @@ const styles = StyleSheet.create({
   tags: { top: 10 },
   user: {
     fontSize: 12
+  },
+  thumbnail: {
+    flex: 1,
+    flexDirection: "column",
+    alignItems: "center",
+    alignSelf: "center",
+    justifyContent: "center"
   },
   title: {
     fontSize: 15,
@@ -43,10 +51,10 @@ export default ({ id, user, title, tags, createdAt, search, match }: Props) => (
     <Body style={match !== "" ? { height: 110 } : { height: 70 }}>
       <Grid>
         <Row style={styles.heder}>
-          <Col size={1}>
+          <Col size={1} style={styles.thumbnail}>
             <Thumbnail
               square
-              source={{ uri: "https://dotstamp.com/static/files/icon/1.jpg" }}
+              source={{ uri: iconURL(String(user.profileImageID)) }}
             />
           </Col>
 

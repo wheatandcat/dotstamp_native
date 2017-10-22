@@ -18,13 +18,21 @@ import { User } from "./"
 
 type Props = {
   name: string,
+  imageID: number,
   avatarURL: string,
   userList: Array<Item>,
   followList: Array<Item>,
   onLogout: () => void
 }
 
-export default ({ name, avatarURL, userList, followList, onLogout }: Props) => (
+export default ({
+  name,
+  imageID,
+  avatarURL,
+  userList,
+  followList,
+  onLogout
+}: Props) => (
   <Root>
     <Container>
       <Content padder>
@@ -41,7 +49,15 @@ export default ({ name, avatarURL, userList, followList, onLogout }: Props) => (
             }
           >
             <List style={{ backgroundColor: "rgb(255, 255, 255)" }}>
-              {userList.map(item => <Page key={item.id} {...item} match="" />)}
+              {userList.map(item => (
+                <Page
+                  key={item.id}
+                  {...item}
+                  match=""
+                  user={{ name, profileImageID: imageID }}
+                  tags={[]}
+                />
+              ))}
             </List>
           </Tab>
           <Tab

@@ -62,6 +62,11 @@ export default ({
           <Text>{name}</Text>
           <Text note>{createdAt}に投稿しました</Text>
         </Body>
+        <Right>
+          <Button transparent>
+            <Icon active name="list" />
+          </Button>
+        </Right>
       </Left>
     </CardItem>
     <CardItem style={styles.body}>
