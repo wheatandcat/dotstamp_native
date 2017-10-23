@@ -1,25 +1,27 @@
 // @flow
 import { connect } from "react-redux"
-import { Actions } from "react-native-router-flux"
 import Page from "../../../components/Contribution/Problem"
-import { ProblemType } from "../../modules/Contribution/Problem"
+import { ProblemType, Sent, Init } from "../../modules/Contribution/Problem"
 import { fetchPostsIfNeeded } from "../../../libs/fetch"
 
 const mapStateToProps = ({ ContributionShow, ContributionProblem }: any) => ({
   itemId: ContributionShow.item.id,
-  problemType: ContributionProblem.problemType
+  problemType: ContributionProblem.problemType,
+  sent: ContributionProblem.sent
 })
 
 const mapDispatchToProps = (dispatch: Function) => ({
+  onReset: () => dispatch(Init()),
   onSelectClick: (problemType: number) => dispatch(ProblemType(problemType)),
   onSubmitClick: (itemId: number, problemType: number) => {
-    Actions.pop()
-    return dispatch(
-      fetchPostsIfNeeded("contributions/problem", {
+    dispatch(
+      fetchPostsIfNeeded("problem", {
         id: itemId,
         type: problemType
       })
-    )
+    ).then(() => {
+      dispatch(Sent(true))
+    })
   }
 })
 

@@ -8,6 +8,16 @@ storiesOf("Contribution/Problem", module)
     <Page
       itemId={1}
       value={1}
+      sent={false}
+      onSelectClick={action("onSelectClick")}
+      onSubmitClick={action("onSubmitClick")}
+    />
+  ))
+  .add("Page with sent", () => (
+    <Page
+      itemId={1}
+      value={1}
+      sent
       onSelectClick={action("onSelectClick")}
       onSubmitClick={action("onSubmitClick")}
     />
