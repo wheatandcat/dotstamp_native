@@ -29,7 +29,6 @@ const enhance: HOC<State, Props> = compose(
 const Plain = ({ open, setOpenTerms }: State) => (
   <Container>
     <Content>
-      <Terms open={open} onSetOpen={setOpenTerms} />
       <List>
         <ListItem itemDivider />
         <ListItem
@@ -74,6 +73,7 @@ const Plain = ({ open, setOpenTerms }: State) => (
           </Right>
         </ListItem>
       </List>
+      <Terms open={open} onSetOpen={setOpenTerms} />
     </Content>
   </Container>
 )
