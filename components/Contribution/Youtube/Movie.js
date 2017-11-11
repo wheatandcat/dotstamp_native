@@ -6,7 +6,7 @@ type Props = {
   videoID: string
 }
 
-export default ({ videoID }: Props) =>
+export default ({ videoID }: Props) => (
   <WebView
     style={{ flex: 1 }}
     javaScriptEnabled
@@ -14,3 +14,4 @@ export default ({ videoID }: Props) =>
       uri: `https://www.youtube.com/embed/${videoID}`
     }}
   />
+)

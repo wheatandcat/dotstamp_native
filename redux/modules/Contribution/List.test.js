@@ -43,6 +43,7 @@ describe("edux/modules/Contribution/List", () => {
             list: [
               {
                 id: 1,
+                body: [],
                 user: {
                   id: 1,
                   name: "foo",
@@ -85,6 +86,7 @@ describe("edux/modules/Contribution/List", () => {
           list: [
             {
               id: 1,
+              body: [],
               user: {
                 id: 1,
                 name: "foo",

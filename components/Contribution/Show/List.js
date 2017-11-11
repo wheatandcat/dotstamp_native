@@ -9,14 +9,15 @@ type Props = {
   body: Array<Body>
 }
 
-export default ({ body }: Props) =>
+export default ({ body }: Props) => (
   <Card>
-    {body.map(item =>
+    {body.map(item => (
       <Balloon
         key={item.priority}
         label={item.body}
         talkType={item.talkType}
         iconURL={charaURL(item.character.fileName)}
       />
-    )}
+    ))}
   </Card>
+)

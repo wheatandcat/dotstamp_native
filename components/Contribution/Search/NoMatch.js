@@ -10,7 +10,8 @@ const styles = StyleSheet.create({
     height: 240
   }
 })
-export default () =>
+export default () => (
   <View style={styles.center}>
     <Text>一致する記事はありませんでした。</Text>
   </View>
+)

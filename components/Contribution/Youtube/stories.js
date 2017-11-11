@@ -4,7 +4,7 @@ import { Movie, Frame } from "./"
 
 storiesOf("Contribution/Youtube", module)
   .add("Movie", () => <Movie videoID="4m83DItGME8" />)
-  .add("Frame", () =>
+  .add("Frame", () => (
     <Frame
       item={{
         id: 1,
@@ -34,4 +34,4 @@ storiesOf("Contribution/Youtube", module)
         updatedAt: "2017-07-23T20:17:19+09:00"
       }}
     />
-  )
+  ))

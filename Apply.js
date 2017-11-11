@@ -13,6 +13,7 @@ import Facebook from "./redux/containers/Facebook/Login"
 import Login from "./redux/containers/Login/Page"
 import NewPage from "./redux/containers/New/Page"
 import createStore from "./redux/createStore"
+import Information from "./components/Information"
 
 const store = createStore()
 
@@ -53,6 +54,13 @@ export default () => (
             icon={TabIcon}
             iconName="person"
           />
+          <Scene
+            key="情報"
+            title="情報"
+            component={Information}
+            icon={TabIcon}
+            iconName="settings"
+          />
         </Scene>
         <Scene
           key="tabbar2"
@@ -82,6 +90,13 @@ export default () => (
             component={Login}
             icon={TabIcon}
             iconName="person"
+          />
+          <Scene
+            key="情報"
+            title="情報"
+            component={Information}
+            icon={TabIcon}
+            iconName="settings"
           />
         </Scene>
 
@@ -127,6 +142,13 @@ export default () => (
             icon={TabIcon}
             iconName="person"
           />
+          <Scene
+            key="情報"
+            title="情報"
+            component={Information}
+            icon={TabIcon}
+            iconName="settings"
+          />
         </Scene>
         <Scene
           key="tabbar4"
@@ -157,6 +179,13 @@ export default () => (
             component={NewPage}
             icon={TabIcon}
             iconName="person"
+          />
+          <Scene
+            key="情報"
+            title="情報"
+            component={Information}
+            icon={TabIcon}
+            iconName="settings"
           />
         </Scene>
       </Scene>
