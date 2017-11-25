@@ -63,19 +63,21 @@ export default ({ open, onSetOpen }: Props) => (
             <Description>アプリ上で提供するサービスの利用条件を定めるものです。</Description>
             <SubTitle>第1条（利用規約）</SubTitle>
             <Description>本サービスは個人が運営するサイトです。節度ある、ご利用をお願いします。</Description>
-            <SubTitle>第2条（禁止事項）</SubTitle>
+            <SubTitle>第2条（利用規約への同意）</SubTitle>
+            <Description>利用者は本規約に同意の上、本サービスを利用するものとします。</Description>
+            <SubTitle>第3条（禁止事項）</SubTitle>
             <Description>
               不正行為が確認できた場合は、ユーザー削除 or アクセス禁止処置を行うことがあるので、予めご了承ください。
             </Description>
-            <SubTitle>第3条（記事の削除）</SubTitle>
+            <SubTitle>第4条（記事の削除）</SubTitle>
             <Description>
               通報された記事や不適切内容の記事を場合は、運営の独断で削除する場合があるので、予めご了承ください。
             </Description>
-            <SubTitle>第4条(ユーザーの責任)</SubTitle>
+            <SubTitle>第5条(ユーザーの責任)</SubTitle>
             <Description>
               サービスにおいてユーザーが投稿した記事、内容、または不利益について、一切関与せず責任は負いません
             </Description>
-            <SubTitle>第5条(本サービスの変更・廃止)</SubTitle>
+            <SubTitle>第6条(本サービスの変更・廃止)</SubTitle>
             <Description>
               本サービスを、最低10日間の予告期間をおいて停止または廃止することができます。
               また、廃止に伴うユーザーの不利益は一切保証しないものとします
